@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hagai Rettig — r-hag.ai</title>
+  <meta name="description" content="Hagai Rettig — AI & Big Data leader. Builder of tools that think. Less but better.">
+  <meta property="og:title" content="Hagai Rettig — r-hag.ai">
+  <meta property="og:description" content="AI & Big Data leader building tools that solve real problems. 10+ AI products shipped.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://r-hag.ai">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafbfc;
+      --bg-white: #ffffff;
+      --bg-subtle: #f0f4f3;
+      --bg-card: #ffffff;
+      --bg-dark: #0f172a;
+      --bg-dark-card: #1e293b;
+      --text-primary: #1a2332;
+      --text-secondary: #4a5568;
+      --text-muted: #94a3b8;
+      --accent: #0d9488;
+      --accent-light: #ccfbf1;
+      --accent-hover: #0f766e;
+      --accent-glow: rgba(13, 148, 136, 0.25);
+      --warm: #f59e0b;
+      --warm-light: #fef3c7;
+      --warm-dark: #d97706;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --shadow-glow: 0 0 40px var(--accent-glow);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-hebrew: 'Heebo', sans-serif;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --max-width: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Hebrew mode */
+    html[lang="he"] { direction: rtl; }
+    html[lang="he"] body { font-family: var(--font-hebrew), sans-serif; }
+    html[lang="he"] .section-label,
+    html[lang="he"] .section-title,
+    html[lang="he"] .hero-text h1,
+    html[lang="he"] .nav-logo,
+    html[lang="he"] .belief-card h3,
+    html[lang="he"] .timeline-role,
+    html[lang="he"] .project-name,
+    html[lang="he"] .contact-card h3,
+    html[lang="he"] .counter-label,
+    html[lang="he"] .edu-card h4 { font-family: var(--font-hebrew), sans-serif; }
+
+    html[lang="he"] .timeline::before { left: auto; right: 7px; }
+    html[lang="he"] .timeline { padding-left: 0; padding-right: 2.5rem; }
+    html[lang="he"] .timeline-dot { left: auto; right: -2.5rem; }
+    html[lang="he"] .timeline-item.current .timeline-card { border-left: none; border-right: 3px solid var(--accent); }
+    html[lang="he"] .timeline-bullets li { padding-left: 0; padding-right: 1.2rem; }
+    html[lang="he"] .timeline-bullets li::before { left: auto; right: 0; }
+
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* ── PARTICLE CANVAS ── */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250, 251, 252, 0.85);
+      backdrop-filter: blur(20px) saturate(1.8);
+      -webkit-backdrop-filter: blur(20px) saturate(1.8);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      background: rgba(250, 251, 252, 0.95);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      background: var(--bg-subtle);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .lang-btn {
+      padding: 0.3rem 0.7rem;
+      border-radius: 16px;
+      border: none;
+      background: transparent;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: var(--font-body);
+    }
+
+    .lang-btn.active {
+      background: var(--bg-white);
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 10; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #f0fdfa 0%, #fafbfc 30%, #fef3c7 70%, #fafbfc 100%);
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-shape-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-light), transparent 70%);
+      top: -200px; right: -100px;
+      animation-delay: 0s;
+    }
+
+    .hero-shape-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--warm-light), transparent 70%);
+      bottom: -100px; left: -50px;
+      animation-delay: -7s;
+    }
+
+    .hero-shape-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%);
+      top: 40%; left: 30%;
+      animation-delay: -14s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, #0ea5e9 50%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle strong { color: var(--text-primary); font-weight: 600; }
+
+    .hero-intro {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--accent-glow);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-photo { display: flex; justify-content: center; align-items: center; }
+
+    .photo-container {
+      position: relative;
+      width: 360px;
+      height: 360px;
+    }
+
+    .photo-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 2px dashed var(--accent);
+      opacity: 0.3;
+      animation: spin-slow 30s linear infinite;
+    }
+
+    .photo-ring-2 {
+      inset: -28px;
+      border-color: var(--purple);
+      opacity: 0.15;
+      animation-direction: reverse;
+      animation-duration: 45s;
+    }
+
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #ddd6fe 50%, var(--warm-light) 100%);
+      border: 4px solid var(--bg-white);
+      box-shadow: var(--shadow-lg), 0 0 60px var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .photo-frame:hover { transform: scale(1.03); }
+
+    .photo-frame .initials {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.5;
+    }
+
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* Floating badges around photo */
+    .floating-badge {
+      position: absolute;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem 0.9rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      animation: badge-float 6s ease-in-out infinite;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    .floating-badge .badge-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .badge-teal { background: var(--accent-light); }
+    .badge-warm { background: var(--warm-light); }
+    .badge-purple { background: #ede9fe; }
+
+    .floating-badge:nth-child(2) { top: 10%; right: -30px; animation-delay: 0s; }
+    .floating-badge:nth-child(3) { bottom: 15%; left: -40px; animation-delay: -2s; }
+    .floating-badge:nth-child(4) { top: 55%; right: -50px; animation-delay: -4s; }
+
+    @keyframes badge-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ── COUNTERS BAR ── */
+    .counters-bar {
+      background: var(--bg-dark);
+      padding: 3.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .counters-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--purple), var(--warm), var(--pink), var(--accent));
+      background-size: 200% auto;
+      animation: gradient-shift 3s linear infinite;
+    }
+
+    .counters-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .counter-item { text-align: center; }
+
+    .counter-number {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .counter-number .counter-suffix {
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .counter-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; position: relative; z-index: 1; }
+
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    html[dir="rtl"] .section-label::before { order: 1; }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 3.5rem;
+      line-height: 1.75;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-white); }
+
+    .story-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.3rem;
+      line-height: 1.85;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, var(--accent-light) 0%, var(--accent-light) 100%);
+      background-size: 100% 40%;
+      background-repeat: no-repeat;
+      background-position: 0 88%;
+      font-weight: 500;
+      color: var(--accent-hover);
+      transition: background-size 0.3s;
+    }
+
+    .highlight:hover { background-size: 100% 100%; }
+
+    .story-image-wrapper {
+      position: relative;
+    }
+
+    .story-image {
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #f0fdfa 0%, #ddd6fe 50%, var(--warm-light) 100%);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-image .placeholder-text {
+      font-family: var(--font-heading);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .story-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+
+    .story-image-decoration {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 12px;
+      bottom: -20px; right: -20px;
+      background: var(--accent);
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    html[dir="rtl"] .story-image-decoration { right: auto; left: -20px; }
+
+    .belief-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .belief-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .belief-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--purple));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .belief-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+
+    .belief-card:hover::before { opacity: 1; }
+
+    .belief-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .belief-icon.teal { background: var(--accent-light); }
+    .belief-icon.warm { background: var(--warm-light); }
+    .belief-icon.purple { background: #ede9fe; }
+
+    .belief-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      line-height: 1.4;
+    }
+
+    .belief-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+
+    .timeline { position: relative; padding-left: 2.5rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--purple), var(--warm));
+      border-radius: 2px;
+    }
+
+    .timeline-item { position: relative; margin-bottom: 2rem; }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.5rem; top: 1.5rem;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--border);
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .timeline-item.current .timeline-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-light), 0 0 20px var(--accent-glow);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    html[dir="rtl"] .timeline-card:hover { transform: translateX(-4px); }
+
+    .timeline-item.current .timeline-card { border-left: 3px solid var(--accent); }
+
+    .timeline-period {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-org {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-bullets { list-style: none; }
+
+    .timeline-bullets li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .timeline-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.7rem;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+
+    .expandable { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .expandable.open { max-height: 600px; }
+
+    .expand-btn {
+      background: none; border: none;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-body);
+      transition: gap 0.3s;
+    }
+
+    .expand-btn:hover { gap: 0.7rem; }
+
+    .expand-btn .arrow {
+      display: inline-block;
+      transition: transform 0.3s;
+      font-size: 0.7rem;
+    }
+
+    .expand-btn.open .arrow { transform: rotate(90deg); }
+
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--warm-light), #fde68a);
+      color: var(--warm-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 24px;
+      margin-top: 0.8rem;
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.15);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    .edu-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-card .school {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-card p { font-size: 0.88rem; color: var(--text-secondary); }
+
+    .military-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .military-badge:hover { box-shadow: var(--shadow-md); }
+
+    .military-badge .icon { font-size: 1.6rem; }
+    .military-badge .info h4 { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; }
+    .military-badge .info p { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg-white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+      border-color: transparent;
+    }
+
+    .project-screenshot {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-screenshot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, transparent 50%);
+    }
+
+    .project-screenshot .placeholder-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #fff;
+      z-index: 1;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      letter-spacing: 0.02em;
+    }
+
+    .project-screenshot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover .project-screenshot img { transform: scale(1.08); }
+
+    .project-body { padding: 1.5rem 1.8rem 1.8rem; }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-name {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .project-name a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .project-name a:hover { color: var(--accent); }
+
+    .status-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      background: var(--accent-light);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.65;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: var(--accent-light);
+      color: var(--accent);
+      transition: all 0.2s;
+    }
+
+    .tag:hover { background: var(--accent); color: #fff; }
+
+    .project-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .project-detail.open { max-height: 300px; }
+
+    .project-detail-content {
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: linear-gradient(180deg, var(--bg) 0%, #f0fdfa 50%, var(--accent-light) 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-light), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .contact-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .contact-card:hover::before { opacity: 1; }
+
+    .contact-card > * { position: relative; z-index: 1; }
+
+    .contact-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-light), #ddd6fe);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.1);
+    }
+
+    .contact-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      word-break: break-word;
+    }
+
+    .contact-card .btn { font-size: 0.85rem; padding: 0.6rem 1.4rem; }
+
+    .contact-extra { text-align: center; margin-top: 1.5rem; }
+    .contact-extra a { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    .contact-extra a:hover { text-decoration: underline; }
+    .contact-location { text-align: center; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.6rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--purple), var(--warm), var(--pink), var(--accent));
+      background-size: 200% auto;
+      animation: gradient-shift 4s linear infinite;
+    }
+
+    footer .tagline {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.5rem;
+    }
+
+    footer .copy { font-size: 0.8rem; }
+
+    footer .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.2rem;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover { color: var(--accent); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html[dir="rtl"] .reveal-left { transform: translateX(40px); }
+    .reveal-left.visible { opacity: 1; transform: none; }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html[dir="rtl"] .reveal-right { transform: translateX(-40px); }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal-scale.visible { opacity: 1; transform: none; }
+
+    .reveal-stagger {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal-stagger.visible { opacity: 1; transform: none; }
+
+    /* ── TILT EFFECT ── */
+    .tilt-card {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; gap: 2.5rem; }
+      .hero-subtitle, .hero-intro { max-width: none; }
+      .hero-cta { justify-content: center; }
+      .hero-photo { order: -1; }
+      .photo-container { width: 280px; height: 280px; }
+      .photo-frame .initials { font-size: 3.5rem; }
+      .floating-badge { display: none; }
+      .story-content { grid-template-columns: 1fr; }
+      .belief-cards { grid-template-columns: 1fr 1fr; }
+      .counters-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(20px);
+        padding: 1.2rem 2rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+        gap: 0.6rem;
+      }
+      .nav-toggle { display: block; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .section-title { font-size: 1.9rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .belief-cards { grid-template-columns: 1fr; }
+      .counters-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .counter-number { font-size: 2.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 4rem 1rem; }
+      .nav-inner { padding: 0.8rem 1rem; }
+      .hero-inner { padding: 6rem 1rem 3rem; }
+      .hero-text h1 { font-size: 1.85rem; }
+      .photo-container { width: 200px; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <canvas id="particles"></canvas>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">r-hag.ai</a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+          <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
+          <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
+          <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" data-lang="he" onclick="setLang('he')">HE</button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>
+          <span data-en="Building AI that" data-he="בונה בינה מלאכותית ש">Building AI that</span><br>
+          <span class="gradient-text" data-en="solves real problems" data-he="פותרת בעיות אמיתיות">solves real problems</span>
+        </h1>
+        <p class="hero-subtitle" data-en="<strong>AI & Big Data Team Lead</strong> at Maccabi Health Services, MBA Lecturer, and builder of 10+ AI products that actually ship." data-he="<strong>ראש צוות AI & Big Data</strong> בשירותי בריאות מכבי, מרצה ל-MBA, ובונה של 10+ מוצרי AI שעובדים באמת."><strong>AI & Big Data Team Lead</strong> at Maccabi Health Services, MBA Lecturer, and builder of 10+ AI products that actually ship.</p>
+        <p class="hero-intro" data-en="I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity." data-he="אני מאמין ב&ldquo;פחות אבל טוב יותר.&rdquo; מהאזנה סביבתית בבריאות ועד סוכני AI שמתמודדים עם ביורוקרטיה &mdash; אני בונה כלים שמחליפים מורכבות בבהירות.">I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" data-en="See My Projects" data-he="הפרויקטים שלי">See My Projects</a>
+          <a href="#contact" class="btn btn-outline" data-en="Get in Touch" data-he="צור קשר">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-container">
+          <div class="photo-ring"></div>
+          <div class="photo-ring photo-ring-2"></div>
+          <div class="photo-frame">
+            <!-- Replace with: <img src="photo.jpg" alt="Hagai Rettig"> -->
+            <span class="initials">HR</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-teal">&#x1f3c6;</div>
+            <span data-en="5 IT Awards" data-he="5 פרסי IT">5 IT Awards</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-warm">&#x1f680;</div>
+            <span data-en="10+ Products" data-he="10+ מוצרים">10+ Products</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-purple">&#x1f393;</div>
+            <span data-en="M.Sc. Technion" data-he="M.Sc. טכניון">M.Sc. Technion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COUNTERS ── -->
+  <div class="counters-bar">
+    <div class="counters-inner">
+      <div class="counter-item reveal-scale">
+        <div class="counter-number"><span class="counter" data-target="5">0</span></div>
+        <div class="counter-label" data-en="IT Awards Won" data-he="פרסי IT">IT Awards Won</div>
+      </div>
+      <div class="counter-item reveal-scale" style="transition-delay: 0.1s">
+        <div class="counter-number"><span class="counter" data-target="10">0</span><span class="counter-suffix">+</span></div>
+        <div class="counter-label" data-en="AI Products Shipped" data-he="מוצרי AI שנשלחו">AI Products Shipped</div>
+      </div>
+      <div class="counter-item reveal-scale" style="transition-delay: 0.2s">
+        <div class="counter-number"><span class="counter" data-target="2">0</span><span class="counter-suffix">M+</span></div>
+        <div class="counter-label" data-en="Patients Impacted" data-he="מטופלים שהושפעו">Patients Impacted</div>
+      </div>
+      <div class="counter-item reveal-scale" style="transition-delay: 0.3s">
+        <div class="counter-number"><span class="counter" data-target="6">0</span><span class="counter-suffix">+</span></div>
+        <div class="counter-label" data-en="Years in AI/ML" data-he="שנים ב-AI/ML">Years in AI/ML</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label reveal" data-en="My Story" data-he="הסיפור שלי">My Story</div>
+      <h2 class="section-title reveal" data-en="From Infantry Commander to AI Leader" data-he="ממפקד חי&quot;ר למוביל AI">From Infantry Commander to AI Leader</h2>
+
+      <div class="story-content">
+        <div class="story-text reveal-left">
+          <p data-en="From commanding infantry soldiers in the <span class='highlight'>Givati Brigade</span> to commanding AI teams at Israel's second-largest health fund &mdash; my path has always been about leading through complexity." data-he="מפיקוד לוחמי חי&quot;ר ב<span class='highlight'>חטיבת גבעתי</span> ועד פיקוד על צוותי AI בקופת החולים השנייה בגודלה בישראל &mdash; המסלול שלי תמיד היה על הובלה דרך מורכבות.">From commanding infantry soldiers in the <span class="highlight">Givati Brigade</span> to commanding AI teams at Israel's second-largest health fund &mdash; my path has always been about leading through complexity.</p>
+          <p data-en="I studied Industrial Engineering at the <span class='highlight'>Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class='highlight'>Maccabi Health Services</span> to do what I love most: build AI systems that actually ship." data-he="למדתי הנדסת תעשייה ב<span class='highlight'>טכניון</span>, ייעלתי שרשראות אספקה בתזה שלי, ואז ביליתי שנים בייעוץ וניהול פרויקטים ב-Applied Materials ו-Moore MC. ב-2023, הצטרפתי ל<span class='highlight'>שירותי בריאות מכבי</span> לעשות את מה שאני הכי אוהב: לבנות מערכות AI שבאמת עובדות.">I studied Industrial Engineering at the <span class="highlight">Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class="highlight">Maccabi Health Services</span> to do what I love most: build AI systems that actually ship.</p>
+          <p data-en="On the side, I teach MBA students, lead the <span class='highlight'>AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors." data-he="במקביל, אני מלמד סטודנטים ל-MBA, מוביל את קהילת <span class='highlight'>AI First Israel</span>, ובונה פרויקטי AI אישיים שפותרים בעיות למשפחה ולשכנים שלי.">On the side, I teach MBA students, lead the <span class="highlight">AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors.</p>
+        </div>
+        <div class="story-image-wrapper reveal-right">
+          <div class="story-image">
+            <!-- Replace with: <img src="speaking.jpg" alt="Hagai speaking at conference"> -->
+            <span class="placeholder-text" data-en="Add photo: speaking / working" data-he="הוסף תמונה: הרצאה / עבודה">Add photo: speaking / working</span>
+          </div>
+          <div class="story-image-decoration"></div>
+        </div>
+      </div>
+
+      <div class="belief-cards">
+        <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.05s">
+          <div class="belief-icon teal">&#x1f4a1;</div>
+          <h3 data-en="Product-Person Fit > Product-Market Fit" data-he="התאמה לאדם > התאמה לשוק">Product-Person Fit &gt; Product-Market Fit</h3>
+          <p data-en="Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products." data-he="בנה למישהו ספציפי &mdash; לעצמך, לילד שלך, לשכן שלך. בעיות אמיתיות יוצרות מוצרים אמיתיים.">Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products.</p>
+        </div>
+        <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.15s">
+          <div class="belief-icon warm">&#x1f3af;</div>
+          <h3 data-en="Don't Be an AI Tourist" data-he="אל תהיה תייר AI">Don't Be an AI Tourist</h3>
+          <p data-en="Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time." data-he="בחר 2-3 כלים, צלול לעומק, שלח ערך אמיתי. עומק מנצח רוחב בכל פעם.">Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time.</p>
+        </div>
+        <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.25s">
+          <div class="belief-icon purple">&#x2728;</div>
+          <h3 data-en="Less But Better" data-he="פחות אבל טוב יותר">Less But Better</h3>
+          <p data-en="Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface." data-he="פשטות היא לא פשרה &mdash; היא המטרה. בנה פחות פיצ'רים, תן ל-AI לנהל את הממשק.">Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-label reveal" data-en="Career" data-he="קריירה">Career</div>
+      <h2 class="section-title reveal" data-en="Experience & Education" data-he="ניסיון והשכלה">Experience & Education</h2>
+      <p class="section-subtitle reveal" data-en="A journey from operations research to shipping AI at scale." data-he="מסע מחקר ביצועים ועד שילוח AI בקנה מידה גדול.">A journey from operations research to shipping AI at scale.</p>
+
+      <div class="timeline">
+        <div class="timeline-item current reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2023 &ndash; Present</div>
+            <div class="timeline-role" data-en="AI & Big Data Team Lead" data-he="ראש צוות AI & Big Data">AI & Big Data Team Lead</div>
+            <div class="timeline-org" data-en="Maccabi Health Services" data-he="שירותי בריאות מכבי">Maccabi Health Services</div>
+            <ul class="timeline-bullets">
+              <li data-en="Leading end-to-end agentic AI and low-code automation solutions" data-he="מוביל פתרונות AI אוטונומיים ואוטומציה low-code מקצה לקצה">Leading end-to-end agentic AI and low-code automation solutions</li>
+              <li data-en="Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office" data-he="מנהל את כל פיתוח ה-AI, ML ו-Big Data &mdash; HealthTech, שירות לקוחות, back-office">Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office</li>
+            </ul>
+            <button class="expand-btn" onclick="toggleExpand(this)" data-en-open="Show less" data-en-closed="See more" data-he-open="הצג פחות" data-he-closed="ראה עוד">
+              <span>See more</span> <span class="arrow">&#x25B8;</span>
+            </button>
+            <div class="expandable">
+              <ul class="timeline-bullets">
+                <li data-en="Integrating Generative AI applications across the organization" data-he="שילוב אפליקציות AI גנרטיבי ברחבי הארגון">Integrating Generative AI applications across the organization</li>
+                <li data-en="Built scalable data pipelines with Kafka, Cloudera, and Kubernetes" data-he="בניית צינורות נתונים סקלאביליים עם Kafka, Cloudera ו-Kubernetes">Built scalable data pipelines with Kafka, Cloudera, and Kubernetes</li>
+                <li data-en="Drove AI-powered process optimization &mdash; significant reduction in manual workloads" data-he="הובלת ייעול תהליכים מבוסס AI &mdash; הפחתה משמעותית בעומסי עבודה ידניים">Drove AI-powered process optimization &mdash; significant reduction in manual workloads</li>
+              </ul>
+              <div class="award-badge">&#x1f3c6; <span data-en="5 IT Awards &mdash; &ldquo;Most Innovative Organization in Israel&rdquo;" data-he="5 פרסי IT &mdash; &ldquo;הארגון החדשני ביותר בישראל&rdquo;">5 IT Awards &mdash; &ldquo;Most Innovative Organization in Israel&rdquo;</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item current reveal-stagger" style="transition-delay: 0.1s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2019 &ndash; Present</div>
+            <div class="timeline-role" data-en="MBA Lecturer" data-he="מרצה MBA">MBA Lecturer</div>
+            <div class="timeline-org" data-en="Ono Academic College" data-he="המכללה האקדמית אונו">Ono Academic College</div>
+            <ul class="timeline-bullets">
+              <li data-en="Teaching AI and technology strategy to the next generation of business leaders" data-he="מלמד אסטרטגיית AI וטכנולוגיה לדור הבא של מנהיגי העסקים">Teaching AI and technology strategy to the next generation of business leaders</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-stagger" style="transition-delay: 0.15s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2019 &ndash; 2023</div>
+            <div class="timeline-role" data-en="Director, Consulting & Data" data-he="מנהל, ייעוץ ודאטה">Director, Consulting & Data</div>
+            <div class="timeline-org" data-en="Moore Management Consulting" data-he="Moore Management Consulting">Moore Management Consulting</div>
+            <button class="expand-btn" onclick="toggleExpand(this)" data-en-open="Show less" data-en-closed="See details" data-he-open="הצג פחות" data-he-closed="פרטים נוספים">
+              <span>See details</span> <span class="arrow">&#x25B8;</span>
+            </button>
+            <div class="expandable">
+              <ul class="timeline-bullets">
+                <li data-en="Advised C-level stakeholders on business, technology, and marketing strategy" data-he="ייעוץ לבכירים באסטרטגיית עסקים, טכנולוגיה ושיווק">Advised C-level stakeholders on business, technology, and marketing strategy</li>
+                <li data-en="Led teams in direct and matrix management models" data-he="הובלת צוותים במודלים של ניהול ישיר ומטריציוני">Led teams in direct and matrix management models</li>
+                <li data-en="Developed data-driven tools and processes to improve service delivery" data-he="פיתוח כלים ותהליכים מבוססי נתונים לשיפור השירות">Developed data-driven tools and processes to improve service delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-stagger" style="transition-delay: 0.2s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2016 &ndash; 2019</div>
+            <div class="timeline-role" data-en="Senior Project Manager" data-he="מנהל פרויקטים בכיר">Senior Project Manager</div>
+            <div class="timeline-org" data-en="Applied Materials" data-he="Applied Materials">Applied Materials</div>
+            <button class="expand-btn" onclick="toggleExpand(this)" data-en-open="Show less" data-en-closed="See details" data-he-open="הצג פחות" data-he-closed="פרטים נוספים">
+              <span>See details</span> <span class="arrow">&#x25B8;</span>
+            </button>
+            <div class="expandable">
+              <ul class="timeline-bullets">
+                <li data-en="Cross-functional project leadership in the semiconductor industry" data-he="הובלת פרויקטים חוצי-ארגון בתעשיית המוליכים למחצה">Cross-functional project leadership in the semiconductor industry</li>
+                <li data-en="Partnered with R&D to develop new services and improve processes" data-he="שיתוף פעולה עם מחלקת R&D לפיתוח שירותים חדשים ושיפור תהליכים">Partnered with R&D to develop new services and improve processes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card reveal-stagger" style="transition-delay: 0.1s">
+          <h4 data-en="M.Sc. Industrial Engineering" data-he="M.Sc. הנדסת תעשייה וניהול">M.Sc. Industrial Engineering</h4>
+          <div class="school" data-en="Technion &mdash; Israel Institute of Technology" data-he="טכניון &mdash; מכון טכנולוגי לישראל">Technion &mdash; Israel Institute of Technology</div>
+          <p data-en="Thesis: Supply Chain Optimization Algorithm" data-he="תזה: אלגוריתם אופטימיזציה לשרשרת אספקה">Thesis: Supply Chain Optimization Algorithm</p>
+        </div>
+        <div class="edu-card reveal-stagger" style="transition-delay: 0.2s">
+          <h4 data-en="B.Sc. Industrial Engineering" data-he="B.Sc. הנדסת תעשייה וניהול">B.Sc. Industrial Engineering</h4>
+          <div class="school" data-en="Ariel University" data-he="אוניברסיטת אריאל">Ariel University</div>
+          <p data-en="Graduated with Highest Honors &mdash; Operations Research" data-he="סיים בהצטיינות יתרה &mdash; חקר ביצועים">Graduated with Highest Honors &mdash; Operations Research</p>
+        </div>
+      </div>
+
+      <div class="military-badge reveal-stagger" style="transition-delay: 0.25s">
+        <div class="icon">&#x1f396;&#xfe0f;</div>
+        <div class="info">
+          <h4 data-en="Combat Infantry Commander" data-he="מפקד חי&quot;ר קרבי">Combat Infantry Commander</h4>
+          <p data-en="Givati Brigade, IDF" data-he="חטיבת גבעתי, צה&quot;ל">Givati Brigade, IDF</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-label reveal" data-en="Portfolio" data-he="פורטפוליו">Portfolio</div>
+      <h2 class="section-title reveal" data-en="Things I've Built" data-he="דברים שבניתי">Things I've Built</h2>
+      <p class="section-subtitle reveal" data-en="Every project started with a real problem &mdash; for me, my family, or my community." data-he="כל פרויקט התחיל מבעיה אמיתית &mdash; שלי, של המשפחה, או של הקהילה.">Every project started with a real problem &mdash; for me, my family, or my community.</p>
+
+      <div class="projects-grid">
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.05s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #0d9488, #06b6d4)">
+            <span class="placeholder-name">KanbanClaw</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/kanbanclaw" target="_blank" rel="noopener">KanbanClaw</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="AI kanban board that thinks with you &mdash; speak, don't click" data-he="לוח קנבן AI שחושב איתך &mdash; דבר, אל תלחץ">AI kanban board that thinks with you &mdash; speak, don't click</div>
+            <div class="project-tags"><span class="tag">AI</span><span class="tag">Voice</span><span class="tag">Productivity</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="A voice-first project management tool. Instead of clicking through menus, just speak: &ldquo;Move the auth task to done&rdquo; or &ldquo;Add a bug for the login page.&rdquo; AI handles the interface so you can focus on the work." data-he="כלי ניהול פרויקטים מבוסס קול. במקום ללחוץ על תפריטים, פשוט דבר: &ldquo;העבר את משימת ההזדהות לסיום&rdquo;. ה-AI מנהל את הממשק כדי שתוכל להתמקד בעבודה.">A voice-first project management tool. Instead of clicking through menus, just speak: &ldquo;Move the auth task to done&rdquo; or &ldquo;Add a bug for the login page.&rdquo; AI handles the interface so you can focus on the work.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.1s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #f59e0b, #fbbf24)">
+            <span class="placeholder-name">HomeTriage</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/HomeTriage-voice" target="_blank" rel="noopener">HomeTriage</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="Voice agent for home medical triage" data-he="סוכן קולי למיון רפואי ביתי">Voice agent for home medical triage</div>
+            <div class="project-tags"><span class="tag">HealthTech</span><span class="tag">Voice AI</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="Speak your symptoms, get an initial assessment. Built from my experience in healthcare AI &mdash; making triage accessible from home, especially for parents with sick kids at 2 AM." data-he="תאר את התסמינים שלך, קבל הערכה ראשונית. נבנה מהניסיון שלי ב-AI לבריאות &mdash; הנגשת מיון מהבית, במיוחד להורים עם ילדים חולים בשעה 2 בלילה.">Speak your symptoms, get an initial assessment. Built from my experience in healthcare AI &mdash; making triage accessible from home, especially for parents with sick kids at 2 AM.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.15s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #1e293b, #475569)">
+            <span class="placeholder-name">Tamzit / LazyNews</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/LazyNews" target="_blank" rel="noopener">Tamzit</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="AI news digest &mdash; less noise, more signal, every hour" data-he="תקציר חדשות AI &mdash; פחות רעש, יותר אות, כל שעה">AI news digest &mdash; less noise, more signal, every hour</div>
+            <div class="project-tags"><span class="tag">NLP</span><span class="tag">Telegram</span><span class="tag">News</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="Monitors Israeli news channels, summarizes with AI, and delivers clean hourly digests via Telegram. Because you shouldn't need to scroll through 50 alerts to know what matters." data-he="עוקב אחרי ערוצי חדשות ישראליים, מסכם עם AI, ומספק עדכונים נקיים כל שעה בטלגרם. כי אתה לא צריך לגלול דרך 50 התראות כדי לדעת מה חשוב.">Monitors Israeli news channels, summarizes with AI, and delivers clean hourly digests via Telegram. Because you shouldn't need to scroll through 50 alerts to know what matters.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.2s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa)">
+            <span class="placeholder-name">Gifted Game</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/Gifted_game" target="_blank" rel="noopener">Gifted Game</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="Prep app for Israel's gifted children tests &mdash; built for my kid" data-he="אפליקציית הכנה למבחני מחוננים &mdash; נבנתה בשביל הילד שלי">Prep app for Israel's gifted children tests &mdash; built for my kid</div>
+            <div class="project-tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Education</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="My kid needed to prep for the Israeli gifted children exam. Existing apps were terrible. So I built one with Expo/React Native covering Stage A and Stage B with real-style questions and progress tracking." data-he="הילד שלי היה צריך להתכונן למבחן מחוננים. האפליקציות הקיימות היו נוראיות. אז בניתי אחת עם Expo/React Native שמכסה שלב א' ושלב ב' עם שאלות בסגנון אמיתי ומעקב התקדמות.">My kid needed to prep for the Israeli gifted children exam. Existing apps were terrible. So I built one with Expo/React Native covering Stage A and Stage B with real-style questions and progress tracking.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.25s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #10b981, #34d399)">
+            <span class="placeholder-name">Remindit</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/remindit" target="_blank" rel="noopener">Remindit</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="WhatsApp bot &mdash; detects tasks in messages, creates calendar events" data-he="בוט וואטסאפ &mdash; מזהה משימות בהודעות, יוצר אירועי יומן">WhatsApp bot &mdash; detects tasks in messages, creates calendar events</div>
+            <div class="project-tags"><span class="tag">NLP</span><span class="tag">WhatsApp</span><span class="tag">Automation</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="How many times have you said &ldquo;I'll do it&rdquo; in a WhatsApp chat and forgot? Remindit reads your messages, spots tasks and deadlines, and auto-creates calendar events." data-he="כמה פעמים אמרת &ldquo;אני אעשה את זה&rdquo; בצ'אט וואטסאפ ושכחת? Remindit קורא את ההודעות שלך, מזהה משימות ודדליינים, ויוצר אירועי יומן אוטומטית.">How many times have you said &ldquo;I'll do it&rdquo; in a WhatsApp chat and forgot? Remindit reads your messages, spots tasks and deadlines, and auto-creates calendar events.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.3s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #3b82f6, #60a5fa)">
+            <span class="placeholder-name">JobSearcher</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">JobSearcher</div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="AI agent that hunts, tailors, and applies to jobs for you" data-he="סוכן AI שמחפש, מתאים ומגיש מועמדות למשרות בשבילך">AI agent that hunts, tailors, and applies to jobs for you</div>
+            <div class="project-tags"><span class="tag">Agentic AI</span><span class="tag">Automation</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="An autonomous agent that searches job boards, tailors your CV to each position, and submits applications. Proof that agentic AI can handle real multi-step workflows end to end." data-he="סוכן אוטונומי שמחפש בלוחות דרושים, מתאים את קורות החיים שלך לכל משרה, ושולח מועמדויות. הוכחה שסוכני AI יכולים לטפל בתהליכים מורכבים מקצה לקצה.">An autonomous agent that searches job boards, tailors your CV to each position, and submits applications. Proof that agentic AI can handle real multi-step workflows end to end.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.35s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #ec4899, #f472b6)">
+            <span class="placeholder-name">Shraga</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/shraga" target="_blank" rel="noopener">Shraga</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="Israeli benefits & discounts aggregator &mdash; the cheapest you'll find" data-he="מאגד הטבות והנחות ישראלי &mdash; הכי זול שתמצא">Israeli benefits & discounts aggregator &mdash; the cheapest you'll find</div>
+            <div class="project-tags"><span class="tag">Web Scraping</span><span class="tag">Aggregation</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="Israelis have benefits buried across health funds, unions, credit cards, and employer perks. Shraga aggregates them all so you never miss a discount you're entitled to." data-he="לישראלים יש הטבות מפוזרות בין קופות חולים, ועדי עובדים, כרטיסי אשראי ומעסיקים. שרגא מרכז את הכל כדי שלא תפספס הנחה שמגיעה לך.">Israelis have benefits buried across health funds, unions, credit cards, and employer perks. Shraga aggregates them all so you never miss a discount you're entitled to.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.4s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #ea580c, #f97316)">
+            <span class="placeholder-name">Tofes4</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/Tofes4" target="_blank" rel="noopener">Tofes4</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood" data-he="AI נגד ביורוקרטיית בנייה ישראלית &mdash; נבנה לכל השכונה">AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood</div>
+            <div class="project-tags"><span class="tag">AI</span><span class="tag">Gov-tech</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="Filing &ldquo;Form 4&rdquo; with Israeli building authorities is a nightmare of paperwork. I built an AI assistant to navigate the process &mdash; first for myself, then for my entire neighborhood." data-he="הגשת &ldquo;טופס 4&rdquo; לרשויות הבנייה בישראל היא סיוט של ניירת. בניתי עוזר AI שמנווט את התהליך &mdash; קודם בשבילי, ואז לכל השכונה.">Filing &ldquo;Form 4&rdquo; with Israeli building authorities is a nightmare of paperwork. I built an AI assistant to navigate the process &mdash; first for myself, then for my entire neighborhood.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.45s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #7c3aed, #a78bfa)">
+            <span class="placeholder-name">Hebrew Birthdays</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name"><a href="https://github.com/hagynwa/HebrewBirthdays" target="_blank" rel="noopener">Hebrew Birthdays</a></div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="Never miss a Hebrew birthday &mdash; built because grandma asked" data-he="לעולם אל תפספס יום הולדת עברי &mdash; נבנה כי סבתא ביקשה">Never miss a Hebrew birthday &mdash; built because grandma asked</div>
+            <div class="project-tags"><span class="tag">Calendar</span><span class="tag">Culture</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="My grandmother asked me to make sure she never misses a Hebrew birthday. So I built a tool that syncs Hebrew calendar dates with your regular calendar. Simple request, simple solution." data-he="סבתא שלי ביקשה ממני לוודא שלעולם לא תפספס יום הולדת עברי. אז בניתי כלי שמסנכרן תאריכים עבריים עם היומן הרגיל שלך. בקשה פשוטה, פתרון פשוט.">My grandmother asked me to make sure she never misses a Hebrew birthday. So I built a tool that syncs Hebrew calendar dates with your regular calendar. Simple request, simple solution.</div></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-stagger" style="transition-delay: 0.5s">
+          <div class="project-screenshot" style="background: linear-gradient(135deg, #0284c7, #38bdf8)">
+            <span class="placeholder-name">OpenClaw</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">OpenClaw</div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en="Open-source home AI assistant &mdash; controls ACs, shutters, everything" data-he="עוזר AI ביתי בקוד פתוח &mdash; שולט על מזגנים, תריסים, הכל">Open-source home AI assistant &mdash; controls ACs, shutters, everything</div>
+            <div class="project-tags"><span class="tag">IoT</span><span class="tag">Smart Home</span><span class="tag">Open Source</span></div>
+            <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
+            <div class="project-detail"><div class="project-detail-content" data-en="A Telegram-based AI assistant that controls my entire smart home &mdash; ACs, shutters, lights. Integrates with Home Assistant and runs on a home server. Open source because everyone deserves a smart home." data-he="עוזר AI מבוסס טלגרם ששולט על כל הבית החכם שלי &mdash; מזגנים, תריסים, אורות. משתלב עם Home Assistant ורץ על שרת ביתי. קוד פתוח כי לכולם מגיע בית חכם.">A Telegram-based AI assistant that controls my entire smart home &mdash; ACs, shutters, lights. Integrates with Home Assistant and runs on a home server. Open source because everyone deserves a smart home.</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal" data-en="Connect" data-he="התחבר">Connect</div>
+      <h2 class="section-title reveal" data-en="Let's Build Something Together" data-he="בואו נבנה משהו ביחד">Let's Build Something Together</h2>
+      <p class="section-subtitle reveal" data-en="Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you." data-he="בין אם אתה רוצה לדבר על אסטרטגיית AI, לשתף פעולה בפרויקט, או סתם להגיד שלום &mdash; אשמח לשמוע ממך.">Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal-stagger" style="transition-delay: 0.05s">
+          <div class="contact-icon">&#x2709;&#xfe0f;</div>
+          <h3 data-en="Email" data-he="אימייל">Email</h3>
+          <p>hagai.rettig@gmail.com</p>
+          <a href="mailto:hagai.rettig@gmail.com" class="btn btn-primary" data-en="Send Email" data-he="שלח אימייל">Send Email</a>
+        </div>
+        <div class="contact-card reveal-stagger" style="transition-delay: 0.15s">
+          <div class="contact-icon">&#x1f4bc;</div>
+          <h3>LinkedIn</h3>
+          <p>linkedin.com/in/hagai-rettig</p>
+          <a href="https://linkedin.com/in/hagai-rettig" target="_blank" rel="noopener" class="btn btn-primary" data-en="Connect" data-he="התחבר">Connect</a>
+        </div>
+        <div class="contact-card reveal-stagger" style="transition-delay: 0.25s">
+          <div class="contact-icon">&#x1f4f1;</div>
+          <h3 data-en="Phone" data-he="טלפון">Phone</h3>
+          <p>+972-52-311-4977</p>
+          <a href="tel:+972523114977" class="btn btn-primary" data-en="Call" data-he="התקשר">Call</a>
+        </div>
+      </div>
+
+      <div class="contact-extra reveal">
+        <a href="https://github.com/hagynwa" target="_blank" rel="noopener">github.com/hagynwa</a>
+      </div>
+      <div class="contact-location reveal" data-en="Based in Kfar Saba, Israel" data-he="כפר סבא, ישראל">Based in Kfar Saba, Israel</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="tagline" data-en="Built with signal, not noise." data-he="נבנה עם אות, לא רעש.">Built with signal, not noise.</div>
+      <div class="copy">r-hag.ai &copy; 2026 Hagai Rettig</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/hagai-rettig" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/hagynwa" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:hagai.rettig@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // ── PARTICLE SYSTEM ──
+    (function() {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: null, y: null };
+      const particleCount = 60;
+      const connectionDistance = 150;
+      const mouseRadius = 200;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.radius = Math.random() * 2 + 0.5;
+          this.opacity = Math.random() * 0.3 + 0.1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+          // Mouse repulsion
+          if (mouse.x !== null) {
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouseRadius) {
+              const force = (mouseRadius - dist) / mouseRadius * 0.02;
+              this.vx += dx / dist * force;
+              this.vy += dy / dist * force;
+            }
+          }
+          // Dampen velocity
+          this.vx *= 0.999;
+          this.vy *= 0.999;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(13, 148, 136, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < connectionDistance) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(13, 148, 136, ${0.06 * (1 - dist / connectionDistance)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+    // ── MOBILE NAV ──
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // ── EXPAND/COLLAPSE ──
+    function toggleExpand(btn) {
+      const expandable = btn.nextElementSibling;
+      const isOpen = expandable.classList.toggle('open');
+      btn.classList.toggle('open');
+      const lang = document.documentElement.lang || 'en';
+      btn.querySelector('span:first-child').textContent = isOpen
+        ? (btn.getAttribute(`data-${lang}-open`) || 'Show less')
+        : (btn.getAttribute(`data-${lang}-closed`) || 'See more');
+    }
+
+    function toggleProjectDetail(btn) {
+      const detail = btn.nextElementSibling;
+      const isOpen = detail.classList.toggle('open');
+      btn.classList.toggle('open');
+      const lang = document.documentElement.lang || 'en';
+      btn.querySelector('span:first-child').textContent = isOpen
+        ? (btn.getAttribute(`data-${lang}-open`) || 'Show less')
+        : (btn.getAttribute(`data-${lang}-closed`) || 'Learn more');
+    }
+
+    // ── SCROLL REVEAL ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+    // ── ANIMATED COUNTERS ──
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const start = performance.now();
+            function update(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic
+              const ease = 1 - Math.pow(1 - progress, 3);
+              counter.textContent = Math.round(target * ease);
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.counters-bar').forEach(el => counterObserver.observe(el));
+
+    // ── TILT EFFECT ON CARDS ──
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -5;
+        const rotateY = (x - centerX) / centerX * 5;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // ── LANGUAGE TOGGLE ──
+    function setLang(lang) {
+      const html = document.documentElement;
+      html.lang = lang;
+      html.dir = lang === 'he' ? 'rtl' : 'ltr';
+
+      // Update toggle buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-en][data-he]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = text;
+          } else {
+            el.innerHTML = text;
+          }
+        }
+      });
+
+      // Update expand buttons text
+      document.querySelectorAll('.expand-btn').forEach(btn => {
+        const expandable = btn.nextElementSibling;
+        if (expandable && (expandable.classList.contains('expandable') || expandable.classList.contains('project-detail'))) {
+          const isOpen = expandable.classList.contains('open');
+          const key = isOpen ? 'open' : 'closed';
+          const text = btn.getAttribute(`data-${lang}-${key}`);
+          if (text) btn.querySelector('span:first-child').textContent = text;
+        }
+      });
+
+      // Save preference
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    // Load saved language
+    try {
+      const saved = localStorage.getItem('lang');
+      if (saved && saved !== 'en') setLang(saved);
+    } catch(e) {}
+
+    // ── SMOOTH SCROLL FOR NAV LINKS ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
