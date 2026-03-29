@@ -12,7 +12,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>></text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -42,7 +42,7 @@
       --shadow-glow: 0 0 40px var(--accent-glow);
       --font-heading: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
-      --font-hebrew: 'Heebo', sans-serif;
+      --font-hebrew: 'Rubik', sans-serif;
       --radius: 16px;
       --radius-sm: 8px;
       --max-width: 1200px;
@@ -422,10 +422,14 @@
     .badge-teal { background: var(--accent-light); }
     .badge-warm { background: var(--warm-light); }
     .badge-purple { background: #ede9fe; }
+    .badge-pink { background: #fce7f3; }
 
-    .floating-badge:nth-child(2) { top: 10%; right: -30px; animation-delay: 0s; }
-    .floating-badge:nth-child(3) { bottom: 15%; left: -40px; animation-delay: -2s; }
-    .floating-badge:nth-child(4) { top: 55%; right: -50px; animation-delay: -4s; }
+    .floating-badge:nth-child(2) { top: 5%; right: -20px; animation-delay: 0s; }
+    .floating-badge:nth-child(3) { bottom: 18%; left: -50px; animation-delay: -1.5s; }
+    .floating-badge:nth-child(4) { top: 35%; right: -55px; animation-delay: -3s; }
+    .floating-badge:nth-child(5) { bottom: 45%; left: -45px; animation-delay: -4.5s; }
+    .floating-badge:nth-child(6) { top: 65%; right: -25px; animation-delay: -2s; }
+    .floating-badge:nth-child(7) { top: -5%; left: 30%; animation-delay: -5s; }
 
     @keyframes badge-float {
       0%, 100% { transform: translateY(0); }
@@ -1140,7 +1144,7 @@
       .hero-photo { order: -1; }
       .photo-container { width: 280px; height: 280px; }
       .photo-frame .initials { font-size: 3.5rem; }
-      .floating-badge { display: none; }
+      .floating-badge { display: none !important; }
       .story-content { grid-template-columns: 1fr; }
       .belief-cards { grid-template-columns: 1fr 1fr; }
       .counters-inner { grid-template-columns: repeat(2, 1fr); }
@@ -1218,11 +1222,11 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1>
-          <span data-en="Building AI that" data-he="בונה בינה מלאכותית ש">Building AI that</span><br>
-          <span class="gradient-text" data-en="solves real problems" data-he="פותרת בעיות אמיתיות">solves real problems</span>
+          <span data-en="Building AI that" data-he="בונה AI ש">Building AI that</span><br>
+          <span class="gradient-text" data-en="solves real problems" data-he="באמת פותר בעיות">solves real problems</span>
         </h1>
-        <p class="hero-subtitle" data-en="<strong>AI & Big Data Team Lead</strong> at Maccabi Health Services, MBA Lecturer, and builder of 10+ AI products that actually ship." data-he="<strong>ראש צוות AI & Big Data</strong> בשירותי בריאות מכבי, מרצה ל-MBA, ובונה של 10+ מוצרי AI שעובדים באמת."><strong>AI & Big Data Team Lead</strong> at Maccabi Health Services, MBA Lecturer, and builder of 10+ AI products that actually ship.</p>
-        <p class="hero-intro" data-en="I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity." data-he="אני מאמין ב&ldquo;פחות אבל טוב יותר.&rdquo; מהאזנה סביבתית בבריאות ועד סוכני AI שמתמודדים עם ביורוקרטיה &mdash; אני בונה כלים שמחליפים מורכבות בבהירות.">I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity.</p>
+        <p class="hero-subtitle" data-en="<strong>Leading AI-based development projects end-to-end</strong> at Maccabi Health Services. MBA Lecturer, community builder, and maker of 10+ AI products that actually ship." data-he="<strong>מוביל פרויקטי פיתוח מבוססי AI מקצה לקצה</strong> בשירותי בריאות מכבי. מרצה MBA, מוביל קהילה, ויוצר של 10+ מוצרי AI שבאמת עובדים."><strong>Leading AI-based development projects end-to-end</strong> at Maccabi Health Services. MBA Lecturer, community builder, and maker of 10+ AI products that actually ship.</p>
+        <p class="hero-intro" data-en="I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity." data-he="המוטו שלי: &ldquo;פחות, אבל טוב יותר&rdquo;. מ-ambient listening בעולם הבריאות ועד סוכני AI שמטפלים בביורוקרטיה &mdash; אני בונה כלים שהופכים מורכבות לפשטות.">I believe in &ldquo;less but better.&rdquo; From ambient listening in healthcare to AI agents that handle bureaucracy &mdash; I build tools that replace complexity with clarity.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary" data-en="See My Projects" data-he="הפרויקטים שלי">See My Projects</a>
           <a href="#contact" class="btn btn-outline" data-en="Get in Touch" data-he="צור קשר">Get in Touch</a>
@@ -1233,8 +1237,7 @@
           <div class="photo-ring"></div>
           <div class="photo-ring photo-ring-2"></div>
           <div class="photo-frame">
-            <!-- Replace with: <img src="photo.jpg" alt="Hagai Rettig"> -->
-            <span class="initials">HR</span>
+            <img src="1578231887219.jpeg" alt="Hagai Rettig">
           </div>
           <div class="floating-badge">
             <div class="badge-icon badge-teal">&#x1f3c6;</div>
@@ -1242,11 +1245,23 @@
           </div>
           <div class="floating-badge">
             <div class="badge-icon badge-warm">&#x1f680;</div>
-            <span data-en="10+ Products" data-he="10+ מוצרים">10+ Products</span>
+            <span data-en="10+ AI Products" data-he="10+ מוצרי AI">10+ AI Products</span>
           </div>
           <div class="floating-badge">
             <div class="badge-icon badge-purple">&#x1f393;</div>
             <span data-en="M.Sc. Technion" data-he="M.Sc. טכניון">M.Sc. Technion</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-teal">&#x1f3eb;</div>
+            <span data-en="MBA Lecturer" data-he="מרצה MBA">MBA Lecturer</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-warm">&#x1f3e5;</div>
+            <span data-en="HealthTech" data-he="הלת'טק">HealthTech</span>
+          </div>
+          <div class="floating-badge">
+            <div class="badge-icon badge-purple">&#x1f396;&#xfe0f;</div>
+            <span data-en="Givati Combat" data-he="לוחם גבעתי">Givati Combat</span>
           </div>
         </div>
       </div>
@@ -1262,7 +1277,7 @@
       </div>
       <div class="counter-item reveal-scale" style="transition-delay: 0.1s">
         <div class="counter-number"><span class="counter" data-target="10">0</span><span class="counter-suffix">+</span></div>
-        <div class="counter-label" data-en="AI Products Shipped" data-he="מוצרי AI שנשלחו">AI Products Shipped</div>
+        <div class="counter-label" data-en="AI Products Shipped" data-he="מוצרי AI שיצאו לאוויר">AI Products Shipped</div>
       </div>
       <div class="counter-item reveal-scale" style="transition-delay: 0.2s">
         <div class="counter-number"><span class="counter" data-target="2">0</span><span class="counter-suffix">M+</span></div>
@@ -1279,13 +1294,13 @@
   <section id="about">
     <div class="section-inner">
       <div class="section-label reveal" data-en="My Story" data-he="הסיפור שלי">My Story</div>
-      <h2 class="section-title reveal" data-en="From Infantry Commander to AI Leader" data-he="ממפקד חי&quot;ר למוביל AI">From Infantry Commander to AI Leader</h2>
+      <h2 class="section-title reveal" data-en="From Infantry Commander to AI Leader" data-he="ממפקד קרבי למוביל AI">From Infantry Commander to AI Leader</h2>
 
       <div class="story-content">
         <div class="story-text reveal-left">
-          <p data-en="From commanding infantry soldiers in the <span class='highlight'>Givati Brigade</span> to commanding AI teams at Israel's second-largest health fund &mdash; my path has always been about leading through complexity." data-he="מפיקוד לוחמי חי&quot;ר ב<span class='highlight'>חטיבת גבעתי</span> ועד פיקוד על צוותי AI בקופת החולים השנייה בגודלה בישראל &mdash; המסלול שלי תמיד היה על הובלה דרך מורכבות.">From commanding infantry soldiers in the <span class="highlight">Givati Brigade</span> to commanding AI teams at Israel's second-largest health fund &mdash; my path has always been about leading through complexity.</p>
-          <p data-en="I studied Industrial Engineering at the <span class='highlight'>Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class='highlight'>Maccabi Health Services</span> to do what I love most: build AI systems that actually ship." data-he="למדתי הנדסת תעשייה ב<span class='highlight'>טכניון</span>, ייעלתי שרשראות אספקה בתזה שלי, ואז ביליתי שנים בייעוץ וניהול פרויקטים ב-Applied Materials ו-Moore MC. ב-2023, הצטרפתי ל<span class='highlight'>שירותי בריאות מכבי</span> לעשות את מה שאני הכי אוהב: לבנות מערכות AI שבאמת עובדות.">I studied Industrial Engineering at the <span class="highlight">Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class="highlight">Maccabi Health Services</span> to do what I love most: build AI systems that actually ship.</p>
-          <p data-en="On the side, I teach MBA students, lead the <span class='highlight'>AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors." data-he="במקביל, אני מלמד סטודנטים ל-MBA, מוביל את קהילת <span class='highlight'>AI First Israel</span>, ובונה פרויקטי AI אישיים שפותרים בעיות למשפחה ולשכנים שלי.">On the side, I teach MBA students, lead the <span class="highlight">AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors.</p>
+          <p data-en="From commanding infantry soldiers in the <span class='highlight'>Givati Brigade</span> to leading AI development at Israel's second-largest health fund &mdash; my path has always been about leading through complexity." data-he="מפיקוד על לוחמים ב<span class='highlight'>חטיבת גבעתי</span> ועד הובלת פיתוח AI בקופת החולים השנייה בגודלה בישראל &mdash; הדרך שלי תמיד עברה דרך מורכבות.">From commanding infantry soldiers in the <span class="highlight">Givati Brigade</span> to leading AI development at Israel's second-largest health fund &mdash; my path has always been about leading through complexity.</p>
+          <p data-en="I studied Industrial Engineering at the <span class='highlight'>Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class='highlight'>Maccabi Health Services</span> to do what I love most: build AI systems that actually ship." data-he="למדתי הנדסת תעשייה וניהול ב<span class='highlight'>טכניון</span>, עבדתי על אופטימיזציה של שרשראות אספקה בתזה, ואחר כך צברתי שנים של ניסיון בייעוץ וניהול פרויקטים ב-Applied Materials וב-Moore MC. ב-2023 הצטרפתי ל<span class='highlight'>מכבי שירותי בריאות</span> כדי לעשות את מה שהכי מדליק אותי: לבנות מערכות AI שיוצאות לפועל.">I studied Industrial Engineering at the <span class="highlight">Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class="highlight">Maccabi Health Services</span> to do what I love most: build AI systems that actually ship.</p>
+          <p data-en="On the side, I teach MBA students, lead the <span class='highlight'>AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors." data-he="במקביל, אני מלמד קורסי MBA, מוביל את קהילת <span class='highlight'>AI First Israel</span>, ובונה פרויקטי AI אישיים שפותרים בעיות אמיתיות &mdash; למשפחה שלי ולשכנים.">On the side, I teach MBA students, lead the <span class="highlight">AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors.</p>
         </div>
         <div class="story-image-wrapper reveal-right">
           <div class="story-image">
@@ -1300,17 +1315,17 @@
         <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.05s">
           <div class="belief-icon teal">&#x1f4a1;</div>
           <h3 data-en="Product-Person Fit > Product-Market Fit" data-he="התאמה לאדם > התאמה לשוק">Product-Person Fit &gt; Product-Market Fit</h3>
-          <p data-en="Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products." data-he="בנה למישהו ספציפי &mdash; לעצמך, לילד שלך, לשכן שלך. בעיות אמיתיות יוצרות מוצרים אמיתיים.">Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products.</p>
+          <p data-en="Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products." data-he="תבנה למישהו קונקרטי &mdash; לעצמך, לילד, לשכן. מבעיות אמיתיות נולדים מוצרים אמיתיים.">Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products.</p>
         </div>
         <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.15s">
           <div class="belief-icon warm">&#x1f3af;</div>
           <h3 data-en="Don't Be an AI Tourist" data-he="אל תהיה תייר AI">Don't Be an AI Tourist</h3>
-          <p data-en="Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time." data-he="בחר 2-3 כלים, צלול לעומק, שלח ערך אמיתי. עומק מנצח רוחב בכל פעם.">Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time.</p>
+          <p data-en="Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time." data-he="תבחר 2-3 כלים, תלך לעומק, ותוציא ערך אמיתי. עומק תמיד מנצח רוחב.">Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time.</p>
         </div>
         <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.25s">
           <div class="belief-icon purple">&#x2728;</div>
           <h3 data-en="Less But Better" data-he="פחות אבל טוב יותר">Less But Better</h3>
-          <p data-en="Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface." data-he="פשטות היא לא פשרה &mdash; היא המטרה. בנה פחות פיצ'רים, תן ל-AI לנהל את הממשק.">Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface.</p>
+          <p data-en="Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface." data-he="פשטות זה לא ויתור &mdash; זו המטרה. פחות פיצ'רים, יותר AI שעושה את העבודה.">Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface.</p>
         </div>
       </div>
     </div>
@@ -1321,27 +1336,27 @@
     <div class="section-inner">
       <div class="section-label reveal" data-en="Career" data-he="קריירה">Career</div>
       <h2 class="section-title reveal" data-en="Experience & Education" data-he="ניסיון והשכלה">Experience & Education</h2>
-      <p class="section-subtitle reveal" data-en="A journey from operations research to shipping AI at scale." data-he="מסע מחקר ביצועים ועד שילוח AI בקנה מידה גדול.">A journey from operations research to shipping AI at scale.</p>
+      <p class="section-subtitle reveal" data-en="A journey from operations research to shipping AI at scale." data-he="מחקר תפעול ועד הוצאה לפועל של מוצרי AI בסקייל.">A journey from operations research to shipping AI at scale.</p>
 
       <div class="timeline">
         <div class="timeline-item current reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <div class="timeline-period">2023 &ndash; Present</div>
-            <div class="timeline-role" data-en="AI & Big Data Team Lead" data-he="ראש צוות AI & Big Data">AI & Big Data Team Lead</div>
+            <div class="timeline-role" data-en="Managing AI & Big Data Development" data-he="מנהל פיתוח AI & Big Data">Managing AI & Big Data Development</div>
             <div class="timeline-org" data-en="Maccabi Health Services" data-he="שירותי בריאות מכבי">Maccabi Health Services</div>
             <ul class="timeline-bullets">
-              <li data-en="Leading end-to-end agentic AI and low-code automation solutions" data-he="מוביל פתרונות AI אוטונומיים ואוטומציה low-code מקצה לקצה">Leading end-to-end agentic AI and low-code automation solutions</li>
-              <li data-en="Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office" data-he="מנהל את כל פיתוח ה-AI, ML ו-Big Data &mdash; HealthTech, שירות לקוחות, back-office">Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office</li>
+              <li data-en="Leading end-to-end agentic AI and low-code automation solutions" data-he="מוביל פתרונות Agentic AI ואוטומציית low-code מקצה לקצה">Leading end-to-end agentic AI and low-code automation solutions</li>
+              <li data-en="Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office" data-he="אחראי על כלל פיתוח ה-AI, ML ו-Big Data &mdash; הלת'טק, שירות, ותהליכי Back Office">Managing all AI, ML, and Big Data development &mdash; HealthTech, customer service, back-office</li>
             </ul>
             <button class="expand-btn" onclick="toggleExpand(this)" data-en-open="Show less" data-en-closed="See more" data-he-open="הצג פחות" data-he-closed="ראה עוד">
               <span>See more</span> <span class="arrow">&#x25B8;</span>
             </button>
             <div class="expandable">
               <ul class="timeline-bullets">
-                <li data-en="Integrating Generative AI applications across the organization" data-he="שילוב אפליקציות AI גנרטיבי ברחבי הארגון">Integrating Generative AI applications across the organization</li>
-                <li data-en="Built scalable data pipelines with Kafka, Cloudera, and Kubernetes" data-he="בניית צינורות נתונים סקלאביליים עם Kafka, Cloudera ו-Kubernetes">Built scalable data pipelines with Kafka, Cloudera, and Kubernetes</li>
-                <li data-en="Drove AI-powered process optimization &mdash; significant reduction in manual workloads" data-he="הובלת ייעול תהליכים מבוסס AI &mdash; הפחתה משמעותית בעומסי עבודה ידניים">Drove AI-powered process optimization &mdash; significant reduction in manual workloads</li>
+                <li data-en="Integrating Generative AI applications across the organization" data-he="הטמעת אפליקציות Gen AI ברחבי הארגון">Integrating Generative AI applications across the organization</li>
+                <li data-en="Built scalable data pipelines with Kafka, Cloudera, and Kubernetes" data-he="בנייה של צינורות Data סקלאביליים עם Kafka, Cloudera ו-Kubernetes">Built scalable data pipelines with Kafka, Cloudera, and Kubernetes</li>
+                <li data-en="Drove AI-powered process optimization &mdash; significant reduction in manual workloads" data-he="ייעול תהליכים באמצעות AI &mdash; צמצום משמעותי של עבודה ידנית">Drove AI-powered process optimization &mdash; significant reduction in manual workloads</li>
               </ul>
               <div class="award-badge">&#x1f3c6; <span data-en="5 IT Awards &mdash; &ldquo;Most Innovative Organization in Israel&rdquo;" data-he="5 פרסי IT &mdash; &ldquo;הארגון החדשני ביותר בישראל&rdquo;">5 IT Awards &mdash; &ldquo;Most Innovative Organization in Israel&rdquo;</span></div>
             </div>
@@ -1355,7 +1370,7 @@
             <div class="timeline-role" data-en="MBA Lecturer" data-he="מרצה MBA">MBA Lecturer</div>
             <div class="timeline-org" data-en="Ono Academic College" data-he="המכללה האקדמית אונו">Ono Academic College</div>
             <ul class="timeline-bullets">
-              <li data-en="Teaching AI and technology strategy to the next generation of business leaders" data-he="מלמד אסטרטגיית AI וטכנולוגיה לדור הבא של מנהיגי העסקים">Teaching AI and technology strategy to the next generation of business leaders</li>
+              <li data-en="Teaching AI and technology strategy to the next generation of business leaders" data-he="מלמד אסטרטגיית AI וטכנולוגיה לדור הבא של המנהלים">Teaching AI and technology strategy to the next generation of business leaders</li>
             </ul>
           </div>
         </div>
@@ -1371,9 +1386,9 @@
             </button>
             <div class="expandable">
               <ul class="timeline-bullets">
-                <li data-en="Advised C-level stakeholders on business, technology, and marketing strategy" data-he="ייעוץ לבכירים באסטרטגיית עסקים, טכנולוגיה ושיווק">Advised C-level stakeholders on business, technology, and marketing strategy</li>
-                <li data-en="Led teams in direct and matrix management models" data-he="הובלת צוותים במודלים של ניהול ישיר ומטריציוני">Led teams in direct and matrix management models</li>
-                <li data-en="Developed data-driven tools and processes to improve service delivery" data-he="פיתוח כלים ותהליכים מבוססי נתונים לשיפור השירות">Developed data-driven tools and processes to improve service delivery</li>
+                <li data-en="Advised C-level stakeholders on business, technology, and marketing strategy" data-he="ייעוץ אסטרטגי להנהלות בכירות בתחומי עסקים, טכנולוגיה ושיווק">Advised C-level stakeholders on business, technology, and marketing strategy</li>
+                <li data-en="Led teams in direct and matrix management models" data-he="ניהול צוותים בהובלה ישירה ומטריציונית">Led teams in direct and matrix management models</li>
+                <li data-en="Developed data-driven tools and processes to improve service delivery" data-he="פיתוח כלים ותהליכים Data-Driven לשיפור איכות השירות">Developed data-driven tools and processes to improve service delivery</li>
               </ul>
             </div>
           </div>
@@ -1390,8 +1405,8 @@
             </button>
             <div class="expandable">
               <ul class="timeline-bullets">
-                <li data-en="Cross-functional project leadership in the semiconductor industry" data-he="הובלת פרויקטים חוצי-ארגון בתעשיית המוליכים למחצה">Cross-functional project leadership in the semiconductor industry</li>
-                <li data-en="Partnered with R&D to develop new services and improve processes" data-he="שיתוף פעולה עם מחלקת R&D לפיתוח שירותים חדשים ושיפור תהליכים">Partnered with R&D to develop new services and improve processes</li>
+                <li data-en="Cross-functional project leadership in the semiconductor industry" data-he="הובלת פרויקטים חוצי-ארגון בתעשיית השבבים">Cross-functional project leadership in the semiconductor industry</li>
+                <li data-en="Partnered with R&D to develop new services and improve processes" data-he="עבודה משותפת עם R&D לפיתוח שירותים חדשים ושיפור תהליכים">Partnered with R&D to develop new services and improve processes</li>
               </ul>
             </div>
           </div>
@@ -1439,7 +1454,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/kanbanclaw" target="_blank" rel="noopener">KanbanClaw</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="AI kanban board that thinks with you &mdash; speak, don't click" data-he="לוח קנבן AI שחושב איתך &mdash; דבר, אל תלחץ">AI kanban board that thinks with you &mdash; speak, don't click</div>
+            <div class="project-desc" data-en="AI kanban board that thinks with you &mdash; speak, don't click" data-he="לוח קנבן עם AI &mdash; תדבר, לא תלחץ">AI kanban board that thinks with you &mdash; speak, don't click</div>
             <div class="project-tags"><span class="tag">AI</span><span class="tag">Voice</span><span class="tag">Productivity</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="A voice-first project management tool. Instead of clicking through menus, just speak: &ldquo;Move the auth task to done&rdquo; or &ldquo;Add a bug for the login page.&rdquo; AI handles the interface so you can focus on the work." data-he="כלי ניהול פרויקטים מבוסס קול. במקום ללחוץ על תפריטים, פשוט דבר: &ldquo;העבר את משימת ההזדהות לסיום&rdquo;. ה-AI מנהל את הממשק כדי שתוכל להתמקד בעבודה.">A voice-first project management tool. Instead of clicking through menus, just speak: &ldquo;Move the auth task to done&rdquo; or &ldquo;Add a bug for the login page.&rdquo; AI handles the interface so you can focus on the work.</div></div>
@@ -1455,7 +1470,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/HomeTriage-voice" target="_blank" rel="noopener">HomeTriage</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="Voice agent for home medical triage" data-he="סוכן קולי למיון רפואי ביתי">Voice agent for home medical triage</div>
+            <div class="project-desc" data-en="Voice agent for home medical triage" data-he="סוכן קולי לטריאז' רפואי מהבית">Voice agent for home medical triage</div>
             <div class="project-tags"><span class="tag">HealthTech</span><span class="tag">Voice AI</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="Speak your symptoms, get an initial assessment. Built from my experience in healthcare AI &mdash; making triage accessible from home, especially for parents with sick kids at 2 AM." data-he="תאר את התסמינים שלך, קבל הערכה ראשונית. נבנה מהניסיון שלי ב-AI לבריאות &mdash; הנגשת מיון מהבית, במיוחד להורים עם ילדים חולים בשעה 2 בלילה.">Speak your symptoms, get an initial assessment. Built from my experience in healthcare AI &mdash; making triage accessible from home, especially for parents with sick kids at 2 AM.</div></div>
@@ -1471,7 +1486,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/LazyNews" target="_blank" rel="noopener">Tamzit</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="AI news digest &mdash; less noise, more signal, every hour" data-he="תקציר חדשות AI &mdash; פחות רעש, יותר אות, כל שעה">AI news digest &mdash; less noise, more signal, every hour</div>
+            <div class="project-desc" data-en="AI news digest &mdash; less noise, more signal, every hour" data-he="תקציר חדשות AI &mdash; פחות רעש, יותר תוכן, כל שעה">AI news digest &mdash; less noise, more signal, every hour</div>
             <div class="project-tags"><span class="tag">NLP</span><span class="tag">Telegram</span><span class="tag">News</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="Monitors Israeli news channels, summarizes with AI, and delivers clean hourly digests via Telegram. Because you shouldn't need to scroll through 50 alerts to know what matters." data-he="עוקב אחרי ערוצי חדשות ישראליים, מסכם עם AI, ומספק עדכונים נקיים כל שעה בטלגרם. כי אתה לא צריך לגלול דרך 50 התראות כדי לדעת מה חשוב.">Monitors Israeli news channels, summarizes with AI, and delivers clean hourly digests via Telegram. Because you shouldn't need to scroll through 50 alerts to know what matters.</div></div>
@@ -1487,7 +1502,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/Gifted_game" target="_blank" rel="noopener">Gifted Game</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="Prep app for Israel's gifted children tests &mdash; built for my kid" data-he="אפליקציית הכנה למבחני מחוננים &mdash; נבנתה בשביל הילד שלי">Prep app for Israel's gifted children tests &mdash; built for my kid</div>
+            <div class="project-desc" data-en="Prep app for Israel's gifted children tests &mdash; built for my kid" data-he="אפליקציית הכנה למבחני מחוננים &mdash; בניתי בשביל הילד שלי">Prep app for Israel's gifted children tests &mdash; built for my kid</div>
             <div class="project-tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Education</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="My kid needed to prep for the Israeli gifted children exam. Existing apps were terrible. So I built one with Expo/React Native covering Stage A and Stage B with real-style questions and progress tracking." data-he="הילד שלי היה צריך להתכונן למבחן מחוננים. האפליקציות הקיימות היו נוראיות. אז בניתי אחת עם Expo/React Native שמכסה שלב א' ושלב ב' עם שאלות בסגנון אמיתי ומעקב התקדמות.">My kid needed to prep for the Israeli gifted children exam. Existing apps were terrible. So I built one with Expo/React Native covering Stage A and Stage B with real-style questions and progress tracking.</div></div>
@@ -1503,7 +1518,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/remindit" target="_blank" rel="noopener">Remindit</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="WhatsApp bot &mdash; detects tasks in messages, creates calendar events" data-he="בוט וואטסאפ &mdash; מזהה משימות בהודעות, יוצר אירועי יומן">WhatsApp bot &mdash; detects tasks in messages, creates calendar events</div>
+            <div class="project-desc" data-en="WhatsApp bot &mdash; detects tasks in messages, creates calendar events" data-he="בוט WhatsApp &mdash; מזהה משימות בהודעות ויוצר אירועים ביומן">WhatsApp bot &mdash; detects tasks in messages, creates calendar events</div>
             <div class="project-tags"><span class="tag">NLP</span><span class="tag">WhatsApp</span><span class="tag">Automation</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="How many times have you said &ldquo;I'll do it&rdquo; in a WhatsApp chat and forgot? Remindit reads your messages, spots tasks and deadlines, and auto-creates calendar events." data-he="כמה פעמים אמרת &ldquo;אני אעשה את זה&rdquo; בצ'אט וואטסאפ ושכחת? Remindit קורא את ההודעות שלך, מזהה משימות ודדליינים, ויוצר אירועי יומן אוטומטית.">How many times have you said &ldquo;I'll do it&rdquo; in a WhatsApp chat and forgot? Remindit reads your messages, spots tasks and deadlines, and auto-creates calendar events.</div></div>
@@ -1519,7 +1534,7 @@
               <div class="project-name">JobSearcher</div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="AI agent that hunts, tailors, and applies to jobs for you" data-he="סוכן AI שמחפש, מתאים ומגיש מועמדות למשרות בשבילך">AI agent that hunts, tailors, and applies to jobs for you</div>
+            <div class="project-desc" data-en="AI agent that hunts, tailors, and applies to jobs for you" data-he="סוכן AI שמחפש משרות, מתאים קורות חיים ומגיש בשבילך">AI agent that hunts, tailors, and applies to jobs for you</div>
             <div class="project-tags"><span class="tag">Agentic AI</span><span class="tag">Automation</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="An autonomous agent that searches job boards, tailors your CV to each position, and submits applications. Proof that agentic AI can handle real multi-step workflows end to end." data-he="סוכן אוטונומי שמחפש בלוחות דרושים, מתאים את קורות החיים שלך לכל משרה, ושולח מועמדויות. הוכחה שסוכני AI יכולים לטפל בתהליכים מורכבים מקצה לקצה.">An autonomous agent that searches job boards, tailors your CV to each position, and submits applications. Proof that agentic AI can handle real multi-step workflows end to end.</div></div>
@@ -1535,7 +1550,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/shraga" target="_blank" rel="noopener">Shraga</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="Israeli benefits & discounts aggregator &mdash; the cheapest you'll find" data-he="מאגד הטבות והנחות ישראלי &mdash; הכי זול שתמצא">Israeli benefits & discounts aggregator &mdash; the cheapest you'll find</div>
+            <div class="project-desc" data-en="Israeli benefits & discounts aggregator &mdash; the cheapest you'll find" data-he="מרכז הטבות והנחות &mdash; הכי זול שתמצאו">Israeli benefits & discounts aggregator &mdash; the cheapest you'll find</div>
             <div class="project-tags"><span class="tag">Web Scraping</span><span class="tag">Aggregation</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="Israelis have benefits buried across health funds, unions, credit cards, and employer perks. Shraga aggregates them all so you never miss a discount you're entitled to." data-he="לישראלים יש הטבות מפוזרות בין קופות חולים, ועדי עובדים, כרטיסי אשראי ומעסיקים. שרגא מרכז את הכל כדי שלא תפספס הנחה שמגיעה לך.">Israelis have benefits buried across health funds, unions, credit cards, and employer perks. Shraga aggregates them all so you never miss a discount you're entitled to.</div></div>
@@ -1551,7 +1566,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/Tofes4" target="_blank" rel="noopener">Tofes4</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood" data-he="AI נגד ביורוקרטיית בנייה ישראלית &mdash; נבנה לכל השכונה">AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood</div>
+            <div class="project-desc" data-en="AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood" data-he="AI נגד הביורוקרטיה של טופס 4 &mdash; בניתי לכל השכונה">AI vs. Israeli building bureaucracy &mdash; built for the whole neighborhood</div>
             <div class="project-tags"><span class="tag">AI</span><span class="tag">Gov-tech</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="Filing &ldquo;Form 4&rdquo; with Israeli building authorities is a nightmare of paperwork. I built an AI assistant to navigate the process &mdash; first for myself, then for my entire neighborhood." data-he="הגשת &ldquo;טופס 4&rdquo; לרשויות הבנייה בישראל היא סיוט של ניירת. בניתי עוזר AI שמנווט את התהליך &mdash; קודם בשבילי, ואז לכל השכונה.">Filing &ldquo;Form 4&rdquo; with Israeli building authorities is a nightmare of paperwork. I built an AI assistant to navigate the process &mdash; first for myself, then for my entire neighborhood.</div></div>
@@ -1567,7 +1582,7 @@
               <div class="project-name"><a href="https://github.com/hagynwa/HebrewBirthdays" target="_blank" rel="noopener">Hebrew Birthdays</a></div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="Never miss a Hebrew birthday &mdash; built because grandma asked" data-he="לעולם אל תפספס יום הולדת עברי &mdash; נבנה כי סבתא ביקשה">Never miss a Hebrew birthday &mdash; built because grandma asked</div>
+            <div class="project-desc" data-en="Never miss a Hebrew birthday &mdash; built because grandma asked" data-he="אף פעם לא לפספס יום הולדת עברי &mdash; סבתא ביקשה, אני בניתי">Never miss a Hebrew birthday &mdash; built because grandma asked</div>
             <div class="project-tags"><span class="tag">Calendar</span><span class="tag">Culture</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="My grandmother asked me to make sure she never misses a Hebrew birthday. So I built a tool that syncs Hebrew calendar dates with your regular calendar. Simple request, simple solution." data-he="סבתא שלי ביקשה ממני לוודא שלעולם לא תפספס יום הולדת עברי. אז בניתי כלי שמסנכרן תאריכים עבריים עם היומן הרגיל שלך. בקשה פשוטה, פתרון פשוט.">My grandmother asked me to make sure she never misses a Hebrew birthday. So I built a tool that syncs Hebrew calendar dates with your regular calendar. Simple request, simple solution.</div></div>
@@ -1583,7 +1598,7 @@
               <div class="project-name">OpenClaw</div>
               <span class="status-badge">Active</span>
             </div>
-            <div class="project-desc" data-en="Open-source home AI assistant &mdash; controls ACs, shutters, everything" data-he="עוזר AI ביתי בקוד פתוח &mdash; שולט על מזגנים, תריסים, הכל">Open-source home AI assistant &mdash; controls ACs, shutters, everything</div>
+            <div class="project-desc" data-en="Open-source home AI assistant &mdash; controls ACs, shutters, everything" data-he="עוזר AI ביתי בקוד פתוח &mdash; שולט על מזגנים, תריסים, והכל">Open-source home AI assistant &mdash; controls ACs, shutters, everything</div>
             <div class="project-tags"><span class="tag">IoT</span><span class="tag">Smart Home</span><span class="tag">Open Source</span></div>
             <button class="expand-btn" onclick="toggleProjectDetail(this)" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד"><span>Learn more</span> <span class="arrow">&#x25B8;</span></button>
             <div class="project-detail"><div class="project-detail-content" data-en="A Telegram-based AI assistant that controls my entire smart home &mdash; ACs, shutters, lights. Integrates with Home Assistant and runs on a home server. Open source because everyone deserves a smart home." data-he="עוזר AI מבוסס טלגרם ששולט על כל הבית החכם שלי &mdash; מזגנים, תריסים, אורות. משתלב עם Home Assistant ורץ על שרת ביתי. קוד פתוח כי לכולם מגיע בית חכם.">A Telegram-based AI assistant that controls my entire smart home &mdash; ACs, shutters, lights. Integrates with Home Assistant and runs on a home server. Open source because everyone deserves a smart home.</div></div>
@@ -1599,7 +1614,7 @@
     <div class="section-inner">
       <div class="section-label reveal" data-en="Connect" data-he="התחבר">Connect</div>
       <h2 class="section-title reveal" data-en="Let's Build Something Together" data-he="בואו נבנה משהו ביחד">Let's Build Something Together</h2>
-      <p class="section-subtitle reveal" data-en="Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you." data-he="בין אם אתה רוצה לדבר על אסטרטגיית AI, לשתף פעולה בפרויקט, או סתם להגיד שלום &mdash; אשמח לשמוע ממך.">Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you.</p>
+      <p class="section-subtitle reveal" data-en="Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you." data-he="רוצים לדבר על אסטרטגיית AI, לשתף פעולה על פרויקט, או סתם להגיד שלום? אשמח לשמוע.">Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you.</p>
 
       <div class="contact-grid">
         <div class="contact-card reveal-stagger" style="transition-delay: 0.05s">
@@ -1632,7 +1647,7 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-inner">
-      <div class="tagline" data-en="Built with signal, not noise." data-he="נבנה עם אות, לא רעש.">Built with signal, not noise.</div>
+      <div class="tagline" data-en="Built with signal, not noise." data-he="סיגנל, לא רעש.">Built with signal, not noise.</div>
       <div class="copy">r-hag.ai &copy; 2026 Hagai Rettig</div>
       <ul class="footer-links">
         <li><a href="https://linkedin.com/in/hagai-rettig" target="_blank" rel="noopener">LinkedIn</a></li>
