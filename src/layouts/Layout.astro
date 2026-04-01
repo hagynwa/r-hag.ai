@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>></text></svg>" />
+		<title>Hagai Rettig — r-hag.ai</title>
+		<meta name="description" content="Hagai Rettig — AI & Big Data leader. Builder of tools that think. Less but better." />
+		<meta property="og:title" content="Hagai Rettig — r-hag.ai" />
+		<meta property="og:description" content="AI & Big Data leader building tools that solve real problems. 10+ AI products shipped." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://r-hag.ai" />
+	</head>
+	<body>
+		<slot />
+		
+		<!-- Shared Scripts -->
+		<script is:inline>
+			// Language Toggle Logic
+			window.setLang = function(lang) {
+				const html = document.documentElement;
+				html.lang = lang;
+				html.dir = lang === 'he' ? 'rtl' : 'ltr';
+
+				// Update toggle buttons
+				document.querySelectorAll('.lang-btn').forEach(btn => {
+					btn.classList.toggle('active', btn.dataset.lang === lang);
+				});
+
+				// Update all translatable elements
+				document.querySelectorAll('[data-en][data-he]').forEach(el => {
+					const text = el.getAttribute(`data-${lang}`);
+					if (text) {
+						if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+							el.placeholder = text;
+						} else {
+							el.innerHTML = text;
+						}
+					}
+				});
+
+				// Update expand buttons text
+				document.querySelectorAll('.expand-btn').forEach(btn => {
+					const expandable = btn.nextElementSibling;
+					if (expandable && (expandable.classList.contains('expandable') || expandable.classList.contains('project-detail'))) {
+						const isOpen = expandable.classList.contains('open');
+						const key = isOpen ? 'open' : 'closed';
+						const text = btn.getAttribute(`data-${lang}-${key}`);
+						if (text) btn.querySelector('span:first-child').textContent = text;
+					}
+				});
+
+				try { localStorage.setItem('lang', lang); } catch(e) {}
+			}
+
+			// Load saved language
+			try {
+				const savedLang = localStorage.getItem('lang');
+				if (savedLang && savedLang !== 'en') {
+					// We set a timeout to let the DOM render before running translation
+					setTimeout(() => setLang(savedLang), 0);
+				}
+			} catch(e) {}
+
+			// Dark Mode Toggle Logic
+			window.setTheme = function(theme) {
+				if (theme === 'dark') {
+					document.documentElement.setAttribute('data-theme', 'dark');
+				} else {
+					document.documentElement.removeAttribute('data-theme');
+				}
+				
+				// Update all theme toggle buttons
+				document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+					btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+				});
+
+				localStorage.setItem('theme', theme);
+			}
+
+			window.toggleTheme = function() {
+				const current = document.documentElement.getAttribute('data-theme');
+				setTheme(current === 'dark' ? 'light' : 'dark');
+			}
+
+			// Load saved theme
+			try {
+				const savedTheme = localStorage.getItem('theme');
+				if (savedTheme) {
+					setTheme(savedTheme);
+				} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					setTheme('dark');
+				}
+			} catch(e) {}
+			
+			// Scroll Reveal
+			document.addEventListener('DOMContentLoaded', () => {
+				const revealObserver = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							revealObserver.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+				document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger').forEach(el => revealObserver.observe(el));
+			});
+		</script>
+	</body>
+</html>

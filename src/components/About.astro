@@ -1,0 +1,189 @@
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal" data-en="My Story" data-he="הסיפור שלי">My Story</div>
+    <h2 class="section-title reveal" data-en="From Infantry Commander to AI Leader" data-he="ממפקד קרבי למוביל AI">From Infantry Commander to AI Leader</h2>
+
+    <div class="story-content">
+      <div class="story-text reveal-left">
+        <p data-en="From commanding infantry soldiers in the <span class='highlight'>Givati Brigade</span> to leading AI development at Israel's second-largest health fund &mdash; my path has always been about leading through complexity." data-he="מפיקוד על לוחמים ב<span class='highlight'>חטיבת גבעתי</span> ועד הובלת פיתוח AI בקופת החולים השנייה בגודלה בישראל &mdash; הדרך שלי תמיד עברה דרך מורכבות.">From commanding infantry soldiers in the <span class="highlight">Givati Brigade</span> to leading AI development at Israel's second-largest health fund &mdash; my path has always been about leading through complexity.</p>
+        <p data-en="I studied Industrial Engineering at the <span class='highlight'>Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class='highlight'>Maccabi Health Services</span> to do what I love most: build AI systems that actually ship." data-he="למדתי הנדסת תעשייה וניהול ב<span class='highlight'>טכניון</span>, עבדתי על אופטימיזציה של שרשראות אספקה בתזה, ואחר כך צברתי שנים של ניסיון בייעוץ וניהול פרויקטים ב-Applied Materials וב-Moore MC. ב-2023 הצטרפתי ל<span class='highlight'>מכבי שירותי בריאות</span> כדי לעשות את מה שהכי מדליק אותי: לבנות מערכות AI שיוצאות לפועל.">I studied Industrial Engineering at the <span class="highlight">Technion</span>, optimized supply chains for my thesis, then spent years in consulting and project management at Applied Materials and Moore MC. In 2023, I joined <span class="highlight">Maccabi Health Services</span> to do what I love most: build AI systems that actually ship.</p>
+        <p data-en="On the side, I teach MBA students, lead the <span class='highlight'>AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors." data-he="במקביל, אני מלמד קורסי MBA, מוביל את קהילת <span class='highlight'>AI First Israel</span>, ובונה פרויקטי AI אישיים שפותרים בעיות אמיתיות &mdash; למשפחה שלי ולשכנים.">On the side, I teach MBA students, lead the <span class="highlight">AI First Israel</span> community, and build personal AI projects that solve problems for my family and neighbors.</p>
+      </div>
+      <div class="story-image-wrapper reveal-right">
+        <div class="story-image">
+          <!-- Suggesting placeholder replacement per improvements doc -->
+          <div class="modern-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="placeholder-icon">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span data-en="Add photo: speaking / working" data-he="הוסף תמונה: הרצאה / עבודה">Add photo: speaking / working</span>
+          </div>
+        </div>
+        <div class="story-image-decoration"></div>
+      </div>
+    </div>
+
+    <div class="belief-cards">
+      <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.05s">
+        <div class="belief-icon teal">&#x1f4a1;</div>
+        <h3 data-en="Product-Person Fit > Product-Market Fit" data-he="התאמה לאדם > התאמה לשוק">Product-Person Fit &gt; Product-Market Fit</h3>
+        <p data-en="Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products." data-he="תבנה למישהו קונקרטי &mdash; לעצמך, לילד, לשכן. מבעיות אמיתיות נולדים מוצרים אמיתיים.">Build for someone specific &mdash; yourself, your kid, your neighbor. Real problems breed real products.</p>
+      </div>
+      <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.15s">
+        <div class="belief-icon warm">&#x1f3af;</div>
+        <h3 data-en="Don't Be an AI Tourist" data-he="אל תהיה תייר AI">Don't Be an AI Tourist</h3>
+        <p data-en="Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time." data-he="תבחר 2-3 כלים, תלך לעומק, ותוציא ערך אמיתי. עומק תמיד מנצח רוחב.">Pick 2-3 tools, go deep, ship real value. Depth beats breadth every time.</p>
+      </div>
+      <div class="belief-card reveal-stagger tilt-card" style="transition-delay: 0.25s">
+        <div class="belief-icon purple">&#x2728;</div>
+        <h3 data-en="Less But Better" data-he="פחות אבל טוב יותר">Less But Better</h3>
+        <p data-en="Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface." data-he="פשטות זה לא ויתור &mdash; זו המטרה. פחות פיצ'רים, יותר AI שעושה את העבודה.">Simplicity is not a compromise &mdash; it's the goal. Build fewer features, let AI handle the interface.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -5;
+        const rotateY = (x - centerX) / centerX * 5;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  });
+</script>
+
+<style>
+  #about { background: var(--bg-card); transition: background-color 0.3s ease; }
+
+  .story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    margin-bottom: 4rem;
+    align-items: center;
+  }
+
+  .story-text p {
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.3rem;
+    line-height: 1.85;
+  }
+
+  .highlight {
+    background: linear-gradient(120deg, var(--accent-light) 0%, var(--accent-light) 100%);
+    background-size: 100% 40%;
+    background-repeat: no-repeat;
+    background-position: 0 88%;
+    font-weight: 500;
+    color: var(--accent-hover);
+    transition: background-size 0.3s;
+  }
+
+  :global([data-theme="dark"]) .highlight {
+    color: var(--accent-light);
+    background-image: linear-gradient(120deg, rgba(13, 148, 136, 0.4) 0%, rgba(13, 148, 136, 0.4) 100%);
+  }
+
+  .highlight:hover { background-size: 100% 100%; }
+
+  .story-image-wrapper { position: relative; }
+
+  .story-image {
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #f0fdfa 0%, #ddd6fe 50%, var(--warm-light) 100%);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+  }
+
+  :global([data-theme="dark"]) .story-image {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #451a03 100%);
+  }
+
+  .modern-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .placeholder-icon {
+    opacity: 0.5;
+  }
+
+  .story-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+
+  .story-image-decoration {
+    position: absolute; width: 80px; height: 80px; border-radius: 12px;
+    bottom: -20px; right: -20px; background: var(--accent); opacity: 0.15; z-index: -1;
+  }
+
+  html[dir="rtl"] .story-image-decoration { right: auto; left: -20px; }
+
+  .belief-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  .belief-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default; position: relative; overflow: hidden;
+    transform-style: preserve-3d; perspective: 1000px;
+  }
+
+  .belief-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--purple)); opacity: 0; transition: opacity 0.3s;
+  }
+
+  .belief-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; }
+  .belief-card:hover::before { opacity: 1; }
+
+  .belief-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.2rem; color: #000;
+  }
+
+  .belief-icon.teal { background: var(--accent-light); color: var(--accent-hover); }
+  .belief-icon.warm { background: var(--warm-light); color: var(--warm-dark); }
+  .belief-icon.purple { background: #ede9fe; color: #6d28d9; }
+  
+  :global([data-theme="dark"]) .belief-icon.purple { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+  :global([data-theme="dark"]) .belief-icon.teal { color: #5eead4; }
+  :global([data-theme="dark"]) .belief-icon.warm { color: #fcd34d; }
+
+  .belief-card h3 {
+    font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 0.7rem; line-height: 1.4;
+  }
+
+  .belief-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; }
+
+  @media (max-width: 1024px) {
+    .story-content { grid-template-columns: 1fr; }
+    .belief-cards { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .belief-cards { grid-template-columns: 1fr; }
+  }
+</style>

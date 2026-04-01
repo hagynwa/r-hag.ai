@@ -1,0 +1,162 @@
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">r-hag.ai</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+        <li><a href="#experience" data-en="Experience" data-he="ניסיון">Experience</a></li>
+        <li><a href="#projects" data-en="Projects" data-he="פרויקטים">Projects</a></li>
+        <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="he" onclick="setLang('he')">HE</button>
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 20));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  }
+</script>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(250, 251, 252, 0.85);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  :global([data-theme="dark"]) nav {
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+  }
+
+  nav.scrolled {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    background: rgba(250, 251, 252, 0.95);
+  }
+
+  :global([data-theme="dark"]) nav.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .lang-toggle {
+    display: flex;
+    background: var(--bg-subtle);
+    border-radius: 20px;
+    padding: 3px;
+    gap: 2px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+  }
+
+  .lang-btn {
+    padding: 0.3rem 0.7rem;
+    border-radius: 16px;
+    border: none;
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-body);
+  }
+
+  .lang-btn.active {
+    background: var(--bg-white);
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 10; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--bg-white);
+      backdrop-filter: blur(20px);
+      padding: 1.2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      gap: 0.6rem;
+    }
+    .nav-toggle { display: block; }
+  }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0.8rem 1rem; }
+  }
+</style>

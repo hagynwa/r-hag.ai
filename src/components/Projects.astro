@@ -1,0 +1,223 @@
+---
+const projects = [
+  {
+    id: "kanban", name: "KanbanClaw", link: "https://github.com/hagynwa/kanbanclaw", desc: "AI kanban board that thinks with you — speak, don't click", descHe: "לוח קנבן עם AI — תדבר, לא תלחץ", tags: ["AI", "Voice", "Productivity"],
+    detail: "A voice-first project management tool. Instead of clicking through menus, just speak: \"Move the auth task to done\" or \"Add a bug for the login page.\" AI handles the interface so you can focus on the work.", detailHe: "כלי ניהול פרויקטים מבוסס קול. במקום ללחוץ על תפריטים, פשוט דבר: \"העבר את משימת ההזדהות לסיום\". ה-AI מנהל את הממשק כדי שתוכל להתמקד בעבודה.",
+    gradient: "linear-gradient(135deg, #0d9488, #06b6d4)", icon: "📋"
+  },
+  {
+    id: "home", name: "HomeTriage", link: "https://github.com/hagynwa/HomeTriage-voice", desc: "Voice agent for home medical triage", descHe: "סוכן קולי לטריאז' רפואי מהבית", tags: ["HealthTech", "Voice AI"],
+    detail: "Speak your symptoms, get an initial assessment. Built from my experience in healthcare AI — making triage accessible from home, especially for parents with sick kids at 2 AM.", detailHe: "תאר את התסמינים שלך, קבל הערכה ראשונית. נבנה מהניסיון שלי ב-AI לבריאות — הנגשת מיון מהבית, במיוחד להורים עם ילדים חולים בשעה 2 בלילה.",
+    gradient: "linear-gradient(135deg, #f59e0b, #fbbf24)", icon: "🏥"
+  },
+  {
+    id: "tamzit", name: "Tamzit", link: "https://github.com/hagynwa/LazyNews", desc: "AI news digest — less noise, more signal, every hour", descHe: "תקציר חדשות AI — פחות רעש, יותר תוכן, כל שעה", tags: ["NLP", "Telegram", "News"],
+    detail: "Monitors Israeli news channels, summarizes with AI, and delivers clean hourly digests via Telegram. Because you shouldn't need to scroll through 50 alerts to know what matters.", detailHe: "עוקב אחרי ערוצי חדשות ישראליים, מסכם עם AI, ומספק עדכונים נקיים כל שעה בטלגרם. כי אתה לא צריך לגלול דרך 50 התראות כדי לדעת מה חשוב.",
+    gradient: "linear-gradient(135deg, #1e293b, #475569)", icon: "📰"
+  },
+  {
+    id: "gifted", name: "Gifted Game", link: "https://github.com/hagynwa/Gifted_game", desc: "Prep app for Israel's gifted children tests — built for my kid", descHe: "אפליקציית הכנה למבחני מחוננים — בניתי בשביל הילד שלי", tags: ["React Native", "Expo", "Education"],
+    detail: "My kid needed to prep for the Israeli gifted children exam. Existing apps were terrible. So I built one with Expo/React Native covering Stage A and Stage B with real-style questions and progress tracking.", detailHe: "הילד שלי היה צריך להתכונן למבחן מחוננים. האפליקציות הקיימות היו נוראיות. אז בניתי אחת עם Expo/React Native שמכסה שלב א' ושלב ב' עם שאלות בסגנון אמיתי ומעקב התקדמות.",
+    gradient: "linear-gradient(135deg, #8b5cf6, #a78bfa)", icon: "🎓"
+  },
+  {
+    id: "remindit", name: "Remindit", link: "https://github.com/hagynwa/remindit", desc: "WhatsApp bot — detects tasks in messages, creates calendar events", descHe: "בוט WhatsApp — מזהה משימות בהודעות ויוצר אירועים ביומן", tags: ["NLP", "WhatsApp", "Automation"],
+    detail: "How many times have you said \"I'll do it\" in a WhatsApp chat and forgot? Remindit reads your messages, spots tasks and deadlines, and auto-creates calendar events.", detailHe: "כמה פעמים אמרת \"אני אעשה את זה\" בצ'אט וואטסאפ ושכחת? Remindit קורא את ההודעות שלך, מזהה משימות ודדליינים, ויוצר אירועי יומן אוטומטית.",
+    gradient: "linear-gradient(135deg, #10b981, #34d399)", icon: "⏰"
+  },
+  {
+    id: "jobsearcher", name: "JobSearcher", link: "#", desc: "AI agent that hunts, tailors, and applies to jobs for you", descHe: "סוכן AI שמחפש משרות, מתאים קורות חיים ומגיש בשבילך", tags: ["Agentic AI", "Automation"],
+    detail: "An autonomous agent that searches job boards, tailors your CV to each position, and submits applications. Proof that agentic AI can handle real multi-step workflows end to end.", detailHe: "סוכן אוטונומי שמחפש בלוחות דרושים, מתאים את קורות החיים שלך לכל משרה, ושולח מועמדויות. הוכחה שסוכני AI יכולים לטפל בתהליכים מורכבים מקצה לקצה.",
+    gradient: "linear-gradient(135deg, #3b82f6, #60a5fa)", icon: "👔"
+  },
+  {
+    id: "shraga", name: "Shraga", link: "https://github.com/hagynwa/shraga", desc: "Israeli benefits & discounts aggregator — the cheapest you'll find", descHe: "מרכז הטבות והנחות — הכי זול שתמצאו", tags: ["Web Scraping", "Aggregation"],
+    detail: "Israelis have benefits buried across health funds, unions, credit cards, and employer perks. Shraga aggregates them all so you never miss a discount you're entitled to.", detailHe: "לישראלים יש הטבות מפוזרות בין קופות חולים, ועדי עובדים, כרטיסי אשראי ומעסיקים. שרגא מרכז את הכל כדי שלא תפספס הנחה שמגיעה לך.",
+    gradient: "linear-gradient(135deg, #ec4899, #f472b6)", icon: "🏷️"
+  },
+  {
+    id: "tofes4", name: "Tofes4", link: "https://github.com/hagynwa/Tofes4", desc: "AI vs. Israeli building bureaucracy — built for the whole neighborhood", descHe: "AI נגד הביורוקרטיה של טופס 4 — בניתי לכל השכונה", tags: ["AI", "Gov-tech"],
+    detail: "Filing \"Form 4\" with Israeli building authorities is a nightmare of paperwork. I built an AI assistant to navigate the process — first for myself, then for my entire neighborhood.", detailHe: "הגשת \"טופס 4\" לרשויות הבנייה בישראל היא סיוט של ניירת. בניתי עוזר AI שמנווט את התהליך — קודם בשבילי, ואז לכל השכונה.",
+    gradient: "linear-gradient(135deg, #ea580c, #f97316)", icon: "🏗️"
+  },
+  {
+    id: "heb", name: "Hebrew Birthdays", link: "https://github.com/hagynwa/HebrewBirthdays", desc: "Never miss a Hebrew birthday — built because grandma asked", descHe: "אף פעם לא לפספס יום הולדת עברי — סבתא ביקשה, אני בניתי", tags: ["Calendar", "Culture"],
+    detail: "My grandmother asked me to make sure she never misses a Hebrew birthday. So I built a tool that syncs Hebrew calendar dates with your regular calendar. Simple request, simple solution.", detailHe: "סבתא שלי ביקשה ממני לוודא שלעולם לא תפספס יום הולדת עברי. אז בניתי כלי שמסנכרן תאריכים עבריים עם היומן הרגיל שלך. בקשה פשוטה, פתרון פשוט.",
+    gradient: "linear-gradient(135deg, #7c3aed, #a78bfa)", icon: "🎂"
+  },
+  {
+    id: "openclaw", name: "OpenClaw", link: "#", desc: "Open-source home AI assistant — controls ACs, shutters, everything", descHe: "עוזר AI ביתי בקוד פתוח — שולט על מזגנים, תריסים, והכל", tags: ["IoT", "Smart Home", "Open Source"],
+    detail: "A Telegram-based AI assistant that controls my entire smart home — ACs, shutters, lights. Integrates with Home Assistant and runs on a home server. Open source because everyone deserves a smart home.", detailHe: "עוזר AI מבוסס טלגרם ששולט על כל הבית החכם שלי — מזגנים, תריסים, אורות. משתלב עם Home Assistant ורץ על שרת ביתי. קוד פתוח כי לכולם מגיע בית חכם.",
+    gradient: "linear-gradient(135deg, #0284c7, #38bdf8)", icon: "🏠"
+  }
+];
+---
+
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label reveal" data-en="Portfolio" data-he="פורטפוליו">Portfolio</div>
+    <h2 class="section-title reveal" data-en="Things I've Built" data-he="דברים שבניתי">Things I've Built</h2>
+    <p class="section-subtitle reveal" data-en="Every project started with a real problem &mdash; for me, my family, or my community." data-he="כל פרויקט התחיל מבעיה אמיתית &mdash; שלי, של המשפחה, או של הקהילה.">Every project started with a real problem &mdash; for me, my family, or my community.</p>
+
+    <div class="projects-grid">
+      {projects.map((proj, idx) => (
+        <div class="project-card reveal-stagger" style={`transition-delay: ${0.05 * idx}s`}>
+          <div class="project-screenshot" style={`background: ${proj.gradient}`}>
+            <span class="placeholder-icon-large">{proj.icon}</span>
+            <span class="placeholder-name">{proj.name}</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">
+                <a href={proj.link} target="_blank" rel="noopener">{proj.name}</a>
+              </div>
+              <span class="status-badge">Active</span>
+            </div>
+            <div class="project-desc" data-en={proj.desc} data-he={proj.descHe}>{proj.desc}</div>
+            <div class="project-tags">
+              {proj.tags.map(tag => <span class="tag">{tag}</span>)}
+            </div>
+            <div class="project-actions">
+              <button class="expand-btn" data-en-open="Show less" data-en-closed="Learn more" data-he-open="הצג פחות" data-he-closed="קרא עוד">
+                <span>Learn more</span> <span class="arrow">&#x25B8;</span>
+              </button>
+            </div>
+            <div class="project-detail">
+              <div class="project-detail-content" data-en={proj.detail} data-he={proj.detailHe}>{proj.detail}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project-card .expand-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const detail = this.parentElement.nextElementSibling;
+        const isOpen = detail.classList.toggle('open');
+        this.classList.toggle('open');
+        const lang = document.documentElement.lang || 'en';
+        this.querySelector('span:first-child').textContent = isOpen
+          ? (this.getAttribute(`data-${lang}-open`) || 'Show less')
+          : (this.getAttribute(`data-${lang}-closed`) || 'Learn more');
+      });
+    });
+  });
+</script>
+
+<style>
+  #projects { background: var(--bg-white); transition: background-color 0.3s ease; }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    border-color: transparent;
+  }
+
+  .project-screenshot {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-screenshot::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, transparent 50%);
+  }
+
+  .placeholder-icon-large {
+    font-size: 3rem;
+    z-index: 1;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .placeholder-name {
+    font-family: var(--font-heading);
+    font-weight: 600; font-size: 1.5rem; color: #fff;
+    z-index: 1; text-shadow: 0 2px 15px rgba(0,0,0,0.3); letter-spacing: 0.02em;
+  }
+
+  .project-screenshot img {
+    width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .project-screenshot img { transform: scale(1.08); }
+
+  .project-body { padding: 1.5rem 1.8rem 1.8rem; flex-grow: 1; display: flex; flex-direction: column; }
+
+  .project-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;
+  }
+
+  .project-name { font-family: var(--font-heading); font-size: 1.12rem; font-weight: 600; color: var(--text-primary); }
+  .project-name a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .project-name a:hover { color: var(--accent); }
+
+  .status-badge {
+    font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 20px;
+    background: var(--accent-light); color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  
+  :global([data-theme="dark"]) .status-badge { background: rgba(13, 148, 136, 0.2); }
+
+  .project-desc { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.65; flex-grow: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+
+  .tag {
+    font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 6px;
+    background: var(--accent-light); color: var(--accent); transition: all 0.2s;
+  }
+  
+  :global([data-theme="dark"]) .tag { background: rgba(13, 148, 136, 0.2); color: #5eead4; }
+
+  .tag:hover { background: var(--accent); color: #fff; }
+
+  .project-actions { margin-top: auto; }
+
+  .project-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+  .project-detail.open { max-height: 300px; }
+
+  .project-detail-content {
+    padding-top: 0.8rem; margin-top: 0.5rem; border-top: 1px solid var(--border);
+    font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75;
+  }
+
+  .expand-btn {
+    background: none; border: none; color: var(--accent); font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; padding: 0.4rem 0; display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--font-body); transition: gap 0.3s;
+  }
+  .expand-btn:hover { gap: 0.7rem; }
+  .expand-btn .arrow { display: inline-block; transition: transform 0.3s; font-size: 0.7rem; }
+  .expand-btn.open .arrow { transform: rotate(90deg); }
+
+  @media (max-width: 768px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>

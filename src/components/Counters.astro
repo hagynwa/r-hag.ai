@@ -1,0 +1,106 @@
+<div class="counters-bar">
+  <div class="counters-inner">
+    <div class="counter-item reveal-scale">
+      <div class="counter-number"><span class="counter" data-target="5">0</span></div>
+      <div class="counter-label" data-en="IT Awards Won" data-he="פרסי IT">IT Awards Won</div>
+    </div>
+    <div class="counter-item reveal-scale" style="transition-delay: 0.1s">
+      <div class="counter-number"><span class="counter" data-target="10">0</span><span class="counter-suffix">+</span></div>
+      <div class="counter-label" data-en="AI Products Shipped" data-he="מוצרי AI שיצאו לאוויר">AI Products Shipped</div>
+    </div>
+    <div class="counter-item reveal-scale" style="transition-delay: 0.2s">
+      <div class="counter-number"><span class="counter" data-target="2">0</span><span class="counter-suffix">M+</span></div>
+      <div class="counter-label" data-en="Patients Impacted" data-he="מטופלים שהושפעו">Patients Impacted</div>
+    </div>
+    <div class="counter-item reveal-scale" style="transition-delay: 0.3s">
+      <div class="counter-number"><span class="counter" data-target="6">0</span><span class="counter-suffix">+</span></div>
+      <div class="counter-label" data-en="Years in AI/ML" data-he="שנים ב-AI/ML">Years in AI/ML</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const start = performance.now();
+            function update(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const ease = 1 - Math.pow(1 - progress, 3);
+              counter.textContent = Math.round(target * ease);
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.counters-bar').forEach(el => counterObserver.observe(el));
+  });
+</script>
+
+<style>
+  .counters-bar {
+    background: var(--bg-dark);
+    padding: 3.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .counters-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--purple), var(--warm), var(--pink), var(--accent));
+    background-size: 200% auto;
+    animation: gradient-shift 3s linear infinite;
+  }
+
+  .counters-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .counter-item { text-align: center; }
+
+  .counter-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .counter-number .counter-suffix {
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+
+  .counter-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1024px) {
+    .counters-inner { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .counters-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .counter-number { font-size: 2.2rem; }
+  }
+</style>

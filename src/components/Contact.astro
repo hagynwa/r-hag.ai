@@ -1,0 +1,114 @@
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label reveal" data-en="Connect" data-he="התחבר">Connect</div>
+    <h2 class="section-title reveal" data-en="Let's Build Something Together" data-he="בואו נבנה משהו ביחד">Let's Build Something Together</h2>
+    <p class="section-subtitle reveal" data-en="Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you." data-he="רוצים לדבר על אסטרטגיית AI, לשתף פעולה על פרויקט, או סתם להגיד שלום? אשמח לשמוע.">Whether you want to talk AI strategy, collaborate on a project, or just say hello &mdash; I'd love to hear from you.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal-stagger" style="transition-delay: 0.05s">
+        <div class="contact-icon">&#x2709;&#xfe0f;</div>
+        <h3 data-en="Email" data-he="אימייל">Email</h3>
+        <p>hagai.rettig@gmail.com</p>
+        <a href="mailto:hagai.rettig@gmail.com?subject=Reaching%20out%20from%20r-hag.ai" class="btn btn-primary" data-en="Send Email" data-he="שלח אימייל">Send Email</a>
+      </div>
+      <div class="contact-card reveal-stagger" style="transition-delay: 0.15s">
+        <div class="contact-icon">&#x1f4bc;</div>
+        <h3>LinkedIn</h3>
+        <p>linkedin.com/in/hagai-rettig</p>
+        <a href="https://linkedin.com/in/hagai-rettig" target="_blank" rel="noopener" class="btn btn-primary" data-en="Connect" data-he="התחבר">Connect</a>
+      </div>
+      <div class="contact-card reveal-stagger" style="transition-delay: 0.25s">
+        <div class="contact-icon">&#x1f4f1;</div>
+        <h3 data-en="Phone" data-he="טלפון">Phone</h3>
+        <p>+972-52-311-4977</p>
+        <a href="tel:+972523114977" class="btn btn-primary" data-en="Call" data-he="התקשר">Call</a>
+      </div>
+    </div>
+
+    <div class="contact-extra reveal">
+      <a href="https://github.com/hagynwa" target="_blank" rel="noopener">github.com/hagynwa</a>
+    </div>
+    <div class="contact-location reveal" data-en="Based in Kfar Saba, Israel" data-he="כפר סבא, ישראל">Based in Kfar Saba, Israel</div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    background: linear-gradient(180deg, var(--bg) 0%, #f0fdfa 50%, var(--accent-light) 100%);
+  }
+
+  :global([data-theme="dark"]) #contact {
+    background: linear-gradient(180deg, var(--bg) 0%, #1e293b 50%, #0f172a 100%);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--accent-light), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  
+  :global([data-theme="dark"]) .contact-card::before {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), transparent);
+  }
+
+  .contact-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .contact-card:hover::before { opacity: 1; }
+  .contact-card > * { position: relative; z-index: 1; }
+
+  .contact-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-light), #ddd6fe);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.1);
+  }
+  
+  :global([data-theme="dark"]) .contact-icon {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(139, 92, 246, 0.2));
+  }
+
+  .contact-card h3 {
+    font-family: var(--font-heading); font-size: 1rem; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 0.4rem;
+  }
+
+  .contact-card p {
+    font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.2rem; word-break: break-word;
+  }
+
+  .contact-card .btn { font-size: 0.85rem; padding: 0.6rem 1.4rem; }
+
+  .contact-extra { text-align: center; margin-top: 1.5rem; }
+  .contact-extra a { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .contact-extra a:hover { text-decoration: underline; }
+  .contact-location { text-align: center; font-size: 0.88rem; color: var(--text-muted); margin-top: 0.6rem; }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
