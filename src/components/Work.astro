@@ -1,7 +1,7 @@
 ---
 import type { Lang } from '../i18n';
 import { ui } from '../i18n/ui';
-import { featured, more } from '../data/projects';
+import { featured, more, automations } from '../data/projects';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -56,6 +56,21 @@ const nameFor = (p: { name: string; nameHe?: string }) => (lang === 'he' && p.na
       </div>
       <ul class="more-list">
         {more.map((m) => (
+          <li>
+            <strong>{nameFor(m)}</strong>
+            <span>{m.line[lang]}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="more reveal">
+      <div class="more-head">
+        <h3>{t.work.autoTitle}</h3>
+        <p>{t.work.autoNote}</p>
+      </div>
+      <ul class="more-list">
+        {automations.map((m) => (
           <li>
             <strong>{nameFor(m)}</strong>
             <span>{m.line[lang]}</span>

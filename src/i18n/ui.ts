@@ -46,6 +46,9 @@ const en = {
     moreTitle: 'Also built',
     moreNote:
       'Private repositories and prototypes, so no links. Ask me about any of them.',
+    autoTitle: 'Automations that run while I sleep',
+    autoNote:
+      'About thirty n8n workflows on a Railway box do the plumbing behind the projects above. The ones worth a mention:',
   },
   principles: {
     label: 'How I work',
@@ -147,6 +150,8 @@ const he: UiStrings = {
     status: { live: 'באוויר', code: 'קוד פתוח', prototype: 'אב-טיפוס' },
     moreTitle: 'עוד דברים שבניתי',
     moreNote: 'ריפוזיטוריז פרטיים ואבות-טיפוס, ולכן בלי קישורים. שאלו אותי על כל אחד מהם.',
+    autoTitle: 'אוטומציות שרצות כשאני ישן',
+    autoNote: 'כשלושים workflows של n8n על שרת ב-Railway עושים את הצנרת מאחורי הפרויקטים למעלה. אלה ששווה להזכיר:',
   },
   principles: {
     label: 'איך אני עובד',

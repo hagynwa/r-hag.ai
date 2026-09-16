@@ -35,7 +35,7 @@ export const featured: Project[] = [
       he: ['Supabase', 'Gemini', 'סוכן וואטסאפ', '6 שפות', 'GitHub Pages'],
     },
     links: {
-      live: 'https://torah-mitzion.github.io/archive/',
+      live: 'https://30.torahmitzion.org/',
       code: 'https://github.com/Torah-Mitzion/archive',
     },
   },
@@ -176,8 +176,8 @@ export const more: MiniProject[] = [
   {
     name: 'WhatsApp Mirror',
     line: {
-      en: 'A read-only forum view of WhatsApp group messages, so a community’s knowledge stops scrolling away.',
-      he: 'תצוגת פורום לקריאה בלבד של הודעות מקבוצות וואטסאפ, כדי שהידע של הקהילה יפסיק להיעלם למעלה.',
+      en: 'A read-only forum view of WhatsApp groups: n8n receives every message by webhook, stores it in Supabase and routes voice notes to their own flow, so a community’s knowledge stops scrolling away.',
+      he: 'תצוגת פורום לקריאה בלבד של קבוצות וואטסאפ: n8n מקבל כל הודעה ב-webhook, שומר ב-Supabase ומנתב הודעות קוליות לזרימה משלהן, כדי שהידע של הקהילה יפסיק להיעלם למעלה.',
     },
   },
   {
@@ -191,8 +191,8 @@ export const more: MiniProject[] = [
   {
     name: 'Remindit',
     line: {
-      en: 'WhatsApp bot that spots tasks and deadlines in your chats and turns them into calendar events.',
-      he: 'בוט וואטסאפ שמזהה משימות ודדליינים בצ׳אטים והופך אותם לאירועים ביומן.',
+      en: 'WhatsApp calendar assistant: connect Google Calendar once, then add, move and cancel events by chatting. A Gemini agent on n8n with per-user OAuth.',
+      he: 'עוזר יומן בוואטסאפ: מחברים Google Calendar פעם אחת, ואז מוסיפים, מזיזים ומבטלים אירועים בצ׳אט. סוכן Gemini על n8n עם OAuth לכל משתמש.',
     },
   },
   {
@@ -225,11 +225,56 @@ export const more: MiniProject[] = [
       he: 'אב-טיפוס של סוכן קולי לטריאז׳ רפואי מהבית.',
     },
   },
+];
+
+/** n8n workflows on a private instance: described, not linked. */
+export const automations: MiniProject[] = [
   {
-    name: 'n8n automations',
+    name: 'Weather & Kids Outfit Agent',
+    nameHe: 'סוכן מזג אוויר ובגדים לילדים',
     line: {
-      en: 'The plumbing behind much of the above: WhatsApp routing, community broadcasts, promo bots, backups and redeploys.',
-      he: 'הצנרת מאחורי רוב הדברים למעלה: ניתוב וואטסאפ, שידורים לקהילה, בוטים שיווקיים, גיבויים ופריסות מחדש.',
+      en: 'Every school morning at 6:30 a Gemini agent reads the local forecast and tells the family, over WhatsApp, what the kids should wear. On Fridays it adds the Shabbat forecast and candle-lighting times.',
+      he: 'בכל בוקר של יום לימודים ב-6:30 סוכן Gemini קורא את התחזית המקומית ומודיע למשפחה בוואטסאפ מה הילדים צריכים ללבוש. בימי שישי הוא מוסיף תחזית לשבת וזמני הדלקת נרות.',
+    },
+  },
+  {
+    name: 'WhatsApp group bot',
+    nameHe: 'בוט לקבוצות וואטסאפ',
+    line: {
+      en: 'A witty Gemini agent that lives in group chats, with conversation memory in Redis and live web search. It decides for itself whether a message deserves a reply, and stays quiet when it doesn’t.',
+      he: 'סוכן Gemini שנון שחי בקבוצות, עם זיכרון שיחה ב-Redis וחיפוש חי באינטרנט. הוא מחליט בעצמו אם להודעה מגיעה תגובה, ושותק כשלא.',
+    },
+  },
+  {
+    name: 'Tamzit news pipeline',
+    nameHe: 'הצנרת של תמצית',
+    line: {
+      en: 'Telegram news flashes are embedded and de-duplicated against a Supabase vector store, screened for ads, clustered into stories every half hour, and edited by a Gemini “editor-in-chief” into a calm digest three times a day, with a lighter Friday and Saturday-night schedule.',
+      he: 'מבזקים מטלגרם עוברים embedding וסינון כפילויות מול Supabase, סינון פרסומות, קיבוץ לסיפורים כל חצי שעה, ועריכה של ״עורך ראשי״ מבוסס Gemini לתקציר רגוע שלוש פעמים ביום, עם לוח מקוצר לשישי ולמוצאי שבת.',
+    },
+  },
+  {
+    name: 'Parasha podcast generator',
+    nameHe: 'מחולל פודקאסט לפרשת השבוע',
+    line: {
+      en: 'Reads the Hebrew calendar, researches the week’s parasha or holiday, writes a script, narrates it with text-to-speech, stitches the audio, paints a cover image and posts the episode to a WhatsApp channel.',
+      he: 'קורא את הלוח העברי, חוקר את הפרשה או החג של השבוע, כותב תסריט, מקריא אותו ב-text-to-speech, מחבר את האודיו, מצייר תמונת כריכה ומפרסם את הפרק בערוץ וואטסאפ.',
+    },
+  },
+  {
+    name: 'News RAG chatbot',
+    nameHe: 'צ׳אטבוט חדשות (RAG)',
+    line: {
+      en: 'Ask about the news and get answers grounded only in the ingested stories: Cohere embeddings and reranking over Supabase, Gemini for the answer.',
+      he: 'שואלים על החדשות ומקבלים תשובות שמבוססות רק על הידיעות שנקלטו: Cohere ל-embeddings ולדירוג מחדש מעל Supabase, Gemini לתשובה.',
+    },
+  },
+  {
+    name: 'Housekeeping',
+    nameHe: 'תחזוקה',
+    line: {
+      en: 'A scheduled export of every workflow to a GitHub repo, error alerts by mail and push, and a webhook that restarts the worker when it misbehaves.',
+      he: 'ייצוא מתוזמן של כל ה-workflows לריפו ב-GitHub, התראות שגיאה במייל ובפוש, ו-webhook שמאתחל את ה-worker כשהוא משתולל.',
     },
   },
 ];
