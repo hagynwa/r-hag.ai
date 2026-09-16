@@ -1,0 +1,78 @@
+---
+import type { Lang } from '../i18n';
+import { ui } from '../i18n/ui';
+import { teaching } from '../data/experience';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+---
+
+<section class="section teaching" id="teaching">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.teaching.label}</p>
+      <h2 class="section-title">{t.teaching.title}</h2>
+    </header>
+    <ul class="grid">
+      {teaching.map((item, i) => (
+        <li class="card item reveal" style={`--d:${i * 80}ms`}>
+          <h3>{item.title[lang]}</h3>
+          <p>{item.body[lang]}</p>
+          {item.link && (
+            <a class="link" href={item.link} target="_blank" rel="noopener">
+              {t.teaching.open} <Icon name="external" size={15} />
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .teaching {
+    background: var(--surface);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .item {
+    background: var(--bg);
+    padding: 1.6rem 1.6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+  p {
+    font-size: 0.93rem;
+    color: var(--text-2);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

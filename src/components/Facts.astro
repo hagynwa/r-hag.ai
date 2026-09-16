@@ -1,0 +1,81 @@
+---
+import type { Lang } from '../i18n';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+---
+
+<section class="facts" aria-label={lang === 'he' ? 'בקצרה' : 'At a glance'}>
+  <div class="container">
+    <ul class="grid">
+      {t.facts.map((f, i) => (
+        <li class="reveal" style={`--d:${i * 70}ms`}>
+          <span class="value" dir="ltr">{f.value}</span>
+          <span class="label">{f.label}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .facts {
+    padding-bottom: clamp(1rem, 3vw, 2rem);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  li {
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border-inline-start: 1px solid var(--border);
+  }
+  li:first-child {
+    border-inline-start: 0;
+  }
+  .value {
+    font-family: var(--font-mono);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .label {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    li:nth-child(3) {
+      border-inline-start: 0;
+    }
+    li:nth-child(n + 3) {
+      border-top: 1px solid var(--border);
+    }
+  }
+  @media (max-width: 420px) {
+    li {
+      padding: 1.1rem 1.1rem;
+    }
+    .value {
+      font-size: 1.3rem;
+    }
+  }
+</style>

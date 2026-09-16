@@ -1,0 +1,69 @@
+---
+import type { Lang } from '../i18n';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+---
+
+<section class="section principles" id="principles">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.principles.label}</p>
+      <h2 class="section-title">{t.principles.title}</h2>
+    </header>
+    <ol class="grid">
+      {t.principles.items.map((item, i) => (
+        <li class="card item reveal" style={`--d:${i * 80}ms`}>
+          <span class="num">0{i + 1}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .principles {
+    background: var(--surface);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .item {
+    background: var(--bg);
+    padding: 1.7rem 1.6rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-ink);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+  h3 {
+    font-size: 1.12rem;
+    line-height: 1.35;
+  }
+  p {
+    font-size: 0.94rem;
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

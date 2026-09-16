@@ -1,58 +1,69 @@
-<footer>
-  <div class="footer-inner">
-    <div class="tagline" data-en="Built with signal, not noise." data-he="סיגנל, לא רעש.">Built with signal, not noise.</div>
-    <div class="copy">r-hag.ai &copy; {new Date().getFullYear()} Hagai Rettig</div>
-    <ul class="footer-links">
-      <li><a href="https://linkedin.com/in/hagai-rettig" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/hagynwa" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:hagai.rettig@gmail.com">Email</a></li>
+---
+import type { Lang } from '../i18n';
+import { ui } from '../i18n/ui';
+import { contact } from '../data/experience';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container inner">
+    <div class="left">
+      <p class="tagline">{t.footer.tagline}</p>
+      <p class="copy"><span dir="ltr">r-hag.ai</span> © {year} Hagai Rettig · {t.footer.built}</p>
+    </div>
+    <ul class="links">
+      <li><a href={contact.linkedin.url} target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href={contact.github.url} target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href={`mailto:${contact.email}`}>Email</a></li>
+      <li><a href={contact.siteSource} target="_blank" rel="noopener">{t.footer.source}</a></li>
     </ul>
   </div>
 </footer>
 
 <style>
-  footer {
-    background: var(--bg-dark);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 3rem 2rem;
-    position: relative;
-    overflow: hidden;
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-block: 2.2rem 2.6rem;
+    background: var(--surface);
   }
-
-  footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--purple), var(--warm), var(--pink), var(--accent));
-    background-size: 200% auto;
-    animation: gradient-shift 4s linear infinite;
-  }
-
-  footer .tagline {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 0.5rem;
-  }
-
-  footer .copy { font-size: 0.8rem; }
-
-  footer .footer-links {
-    list-style: none;
+  .inner {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.2rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
-
-  footer .footer-links a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.2s;
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    color: var(--accent-ink);
+    margin-bottom: 0.3rem;
   }
-
-  footer .footer-links a:hover { color: var(--accent); }
+  html[lang='he'] .tagline {
+    font-family: var(--font-hebrew);
+    font-weight: 500;
+  }
+  .copy {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .links {
+    display: flex;
+    gap: 1.4rem;
+  }
+  .links a {
+    font-size: 0.86rem;
+    color: var(--text-2);
+    transition: color 0.18s ease;
+  }
+  .links a:hover {
+    color: var(--accent-ink);
+  }
 </style>
