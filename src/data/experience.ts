@@ -93,37 +93,6 @@ export const military: { title: L; org: L } = {
   org: { en: 'Givati Brigade, IDF', he: 'חטיבת גבעתי, צה״ל' },
 };
 
-export interface TeachingItem {
-  title: L;
-  body: L;
-  link?: string;
-}
-
-export const teaching: TeachingItem[] = [
-  {
-    title: { en: 'MBA lecturer, Ono Academic College', he: 'מרצה MBA, הקריה האקדמית אונו' },
-    body: {
-      en: 'Since 2019: AI and technology strategy for managers who need to decide, not code.',
-      he: 'מאז 2019: אסטרטגיית AI וטכנולוגיה למנהלים שצריכים להחליט, לא לקודד.',
-    },
-  },
-  {
-    title: { en: 'AI First Israel community', he: 'קהילת AI First Israel' },
-    body: {
-      en: 'Leading a community of practitioners who build with AI instead of talking about it.',
-      he: 'מוביל קהילה של אנשים שבונים עם AI במקום לדבר עליו.',
-    },
-  },
-  {
-    title: { en: '“Talking AI”, a deck for tech leadership', he: '״מדברים AI״, מצגת להנהלת טכנולוגיות' },
-    body: {
-      en: 'An open, single-file, right-to-left presentation on what LLMs are, how they work and how to adopt them properly. Built for the leadership of Maccabi’s technology division.',
-      he: 'מצגת פתוחה בקובץ אחד, מימין לשמאל, על מה זה LLM, איך זה עובד ואיך מטמיעים נכון. נבנתה להנהלת חטיבת הטכנולוגיות של מכבי.',
-    },
-    link: 'https://github.com/hagynwa/maccabi-ai-deck',
-  },
-];
-
 export const contact = {
   email: 'hagai.rettig@gmail.com',
   whatsapp: { display: '058-687-9347', url: 'https://wa.me/972586879347' },
@@ -132,3 +101,24 @@ export const contact = {
   github: { display: 'github.com/hagynwa', url: 'https://github.com/hagynwa' },
   siteSource: 'https://github.com/hagynwa/r-hag.ai',
 };
+
+/** Stack keywords for the ticker; not translated on purpose. */
+export const stack = [
+  'Gemini',
+  'Supabase',
+  'n8n',
+  'Kafka',
+  'Kubernetes',
+  'Cloudera',
+  'Next.js',
+  'FastAPI',
+  'Python',
+  'WhatsApp API',
+  'Telegram',
+  'Redis',
+  'pdf-lib',
+  'PyMuPDF',
+  'Railway',
+  'GitHub Pages',
+  'Astro',
+];

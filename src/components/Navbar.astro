@@ -21,7 +21,15 @@ const links = [
 
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href={pathOf(lang)} class="brand" aria-label="r-hag.ai, home">r-hag<span>.ai</span></a>
+    <a href={pathOf(lang)} class="brand" aria-label={t.nav.logoAlt}>
+      <img
+        src="/brand/logo.png"
+        srcset="/brand/logo.png 1x, /brand/logo@2x.png 2x"
+        width="148"
+        height="142"
+        alt={t.nav.logoAlt}
+      />
+    </a>
 
     <nav class="links" id="navLinks" aria-label="Primary">
       {links.map(([href, label]) => <a href={href}>{label}</a>)}
@@ -103,7 +111,7 @@ const links = [
     top: 0;
     z-index: 1000;
     height: var(--nav-h);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
     -webkit-backdrop-filter: blur(14px) saturate(1.4);
     backdrop-filter: blur(14px) saturate(1.4);
     border-bottom: 1px solid transparent;
@@ -120,22 +128,28 @@ const links = [
     gap: 1.5rem;
   }
   .brand {
-    font-family: var(--font-mono);
-    font-weight: 500;
-    font-size: 1.05rem;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    direction: ltr;
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: transparent;
+    transition: background-color 0.25s ease;
   }
-  .brand span {
-    color: var(--accent-ink);
+  .brand img {
+    height: 42px;
+    width: auto;
+  }
+  /* The logo carries navy text, so in dark mode it sits on a light tile. */
+  :global([data-theme='dark']) .brand {
+    background: #f5f8fb;
   }
   .links {
     display: flex;
     gap: 1.75rem;
   }
   .links a {
-    font-size: 0.92rem;
+    font-size: 0.93rem;
     font-weight: 500;
     color: var(--text-2);
     padding-block: 0.3rem;
@@ -169,7 +183,7 @@ const links = [
     font-size: 0.86rem;
     font-weight: 600;
     color: var(--text-2);
-    padding: 0.4rem 0.7rem;
+    padding: 0.4rem 0.75rem;
     border-radius: 999px;
     border: 1px solid var(--border);
     background: var(--surface);
@@ -222,6 +236,9 @@ const links = [
     }
     .menu-btn {
       display: inline-flex;
+    }
+    .brand img {
+      height: 38px;
     }
   }
 </style>

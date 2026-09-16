@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../i18n';
 import { ui } from '../i18n/ui';
+import { stack } from '../data/experience';
 
 interface Props {
   lang: Lang;
@@ -8,6 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = ui[lang];
+const ticker = [...stack, ...stack];
 ---
 
 <section class="facts" aria-label={lang === 'he' ? 'בקצרה' : 'At a glance'}>
@@ -20,6 +22,11 @@ const t = ui[lang];
         </li>
       ))}
     </ul>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      {ticker.map((s) => <span>{s}</span>)}
+    </div>
   </div>
 </section>
 
@@ -34,6 +41,7 @@ const t = ui[lang];
     border-radius: var(--radius-lg);
     background: var(--surface);
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
   li {
     padding: 1.4rem 1.5rem;
@@ -46,17 +54,63 @@ const t = ui[lang];
     border-inline-start: 0;
   }
   .value {
-    font-family: var(--font-mono);
-    font-size: 1.55rem;
-    font-weight: 500;
-    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.1;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: fit-content;
   }
   .label {
     font-size: 0.88rem;
     color: var(--text-2);
     line-height: 1.45;
+  }
+
+  .ticker {
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .track {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+    direction: ltr;
+    animation: slide 48s linear infinite;
+  }
+  html[dir='rtl'] .track {
+    animation-direction: reverse;
+  }
+  .track span {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .track span::before {
+    content: '·';
+    color: var(--accent);
+    margin-inline-end: 2.5rem;
+  }
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track {
+      animation: none;
+    }
   }
 
   @media (max-width: 860px) {
@@ -75,7 +129,7 @@ const t = ui[lang];
       padding: 1.1rem 1.1rem;
     }
     .value {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
   }
 </style>

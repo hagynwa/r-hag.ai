@@ -1,0 +1,140 @@
+---
+/**
+ * Small inline illustrations for project cards that have no live site to
+ * screenshot. Stroke-based, brand colors via CSS variables.
+ */
+import type { ArtName } from '../data/projects';
+
+interface Props {
+  name: ArtName;
+}
+
+const { name } = Astro.props;
+---
+
+<div class={`art art-${name}`} aria-hidden="true">
+  {name === 'docanon' && (
+    <svg viewBox="0 0 240 150" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="62" y="18" width="116" height="118" rx="10" class="paper" />
+      <path d="M62 44h116" class="line" />
+      <path d="M80 62h40" class="line" />
+      <rect x="126" y="57" width="34" height="10" rx="3" class="redact" />
+      <path d="M80 80h20" class="line" />
+      <rect x="104" y="75" width="56" height="10" rx="3" class="redact" />
+      <path d="M80 98h60" class="line" />
+      <path d="M80 116h30" class="line" />
+      <rect x="114" y="111" width="30" height="10" rx="3" class="redact" />
+      <circle cx="184" cy="118" r="18" class="badge" />
+      <path d="m176 118 6 6 10-12" class="check" />
+    </svg>
+  )}
+  {name === 'reuitbot' && (
+    <svg viewBox="0 0 240 150" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="28" y="26" width="112" height="38" rx="14" class="bubble-in" />
+      <path d="M44 45h66" class="line-in" />
+      <path d="M44 55h34" class="line-in" />
+      <rect x="92" y="78" width="120" height="46" rx="14" class="bubble-out" />
+      <path d="M110 96h84" class="line-out" />
+      <path d="M110 108h50" class="line-out" />
+      <path d="M52 92c0-9 12-16 12-26 0 10 12 17 12 26a12 12 0 0 1-24 0Z" class="drop" />
+      <path d="M180 40v-9" class="spark" />
+      <path d="M170 45l-5-6" class="spark" />
+      <path d="M190 45l5-6" class="spark" />
+    </svg>
+  )}
+  {name === 'anydoc' && (
+    <svg viewBox="0 0 240 150" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="26" y="26" width="76" height="98" rx="8" class="paper" />
+      <path d="M40 48h48" class="line" />
+      <path d="M40 64h40" class="line" />
+      <path d="M40 80h48" class="line" />
+      <path d="M40 96h28" class="line" />
+      <rect x="40" y="108" width="20" height="8" rx="2" class="mini" />
+      <path d="M112 75h18" class="arrow" />
+      <path d="m124 67 8 8-8 8" class="arrow" />
+      <rect x="140" y="26" width="76" height="98" rx="8" class="paper" />
+      <path d="M154 50h10M159 45v10" class="md" />
+      <path d="M172 50h30" class="line" />
+      <path d="M154 68h30" class="line" />
+      <path d="M154 84h6M154 100h6" class="md" />
+      <path d="M166 84h34M166 100h26" class="line" />
+    </svg>
+  )}
+</div>
+
+<style>
+  .art {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background:
+      radial-gradient(circle at 15% 20%, var(--accent-soft), transparent 50%),
+      linear-gradient(160deg, var(--surface-2), var(--surface));
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .art svg {
+    width: 72%;
+    height: auto;
+    stroke-width: 2.4;
+    --ink: var(--text);
+    --soft: var(--border-strong);
+    --teal: var(--accent);
+  }
+  :global(.project:hover) .art svg {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+  .paper {
+    stroke: var(--ink);
+    fill: var(--surface);
+  }
+  .line {
+    stroke: var(--soft);
+  }
+  .redact {
+    fill: var(--ink);
+    stroke: none;
+  }
+  .badge {
+    fill: var(--teal);
+    stroke: none;
+  }
+  .check {
+    stroke: #fff;
+    stroke-width: 3;
+  }
+  .bubble-in {
+    stroke: var(--ink);
+    fill: var(--surface);
+  }
+  .line-in {
+    stroke: var(--soft);
+  }
+  .bubble-out {
+    fill: var(--teal);
+    stroke: none;
+  }
+  .line-out {
+    stroke: rgba(255, 255, 255, 0.7);
+  }
+  .drop {
+    fill: var(--teal);
+    stroke: var(--ink);
+  }
+  .spark {
+    stroke: var(--teal);
+  }
+  .mini {
+    fill: var(--soft);
+    stroke: none;
+  }
+  .arrow {
+    stroke: var(--teal);
+    stroke-width: 3;
+  }
+  .md {
+    stroke: var(--teal);
+    stroke-width: 3;
+  }
+</style>
