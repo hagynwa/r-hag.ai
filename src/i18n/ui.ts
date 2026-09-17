@@ -10,7 +10,7 @@ export interface ChatMessage {
 
 const en = {
   meta: {
-    title: 'Hagai Rettig · Hag.Ai — AI & Big Data Development Lead',
+    title: 'Hagai Rettig · Hag.Ai — AI Product Leader, LLM & ML Infrastructure',
     description:
       'Hagai Rettig leads AI & Big Data development at Maccabi Healthcare Services and, as Hag.Ai, turns requests from family, neighbors and organizations into agents, data pipelines and tools that ship.',
   },
@@ -54,8 +54,8 @@ const en = {
   },
   facts: [
     { value: '2023 →', label: 'Leading AI & Big Data development at Maccabi Healthcare Services' },
-    { value: '5', label: 'IT awards, including “Most Innovative Organization in Israel”' },
     { value: '2019 →', label: 'MBA lecturer, Ono Academic College' },
+    { value: 'M.Sc.', label: 'Industrial Engineering, Technion' },
     { value: '20+', label: 'Tools and products shipped after hours' },
   ],
   work: {
@@ -65,7 +65,7 @@ const en = {
       'Every project started with a real request: an organization’s, my neighbors’, or my own family’s. The code is public wherever it can be.',
     visit: 'Visit',
     code: 'Code',
-    status: { live: 'Live', code: 'Open source', prototype: 'Prototype' },
+    status: { live: 'Live', code: 'Open source', prototype: 'Prototype', wip: 'In progress' },
     moreTitle: 'Also built',
     moreNote: 'Private repositories and prototypes, mostly without links. Ask me about any of them.',
     autoTitle: 'Automations that run while I sleep',
@@ -104,11 +104,9 @@ const en = {
       'A request, a project, or an AI strategy question. WhatsApp is the fastest way to reach me; email works too.',
     whatsapp: 'Message on WhatsApp',
     email: 'Email me',
-    call: 'Call',
     linkedin: 'LinkedIn',
     github: 'GitHub',
     location: 'Kfar Saba, Israel',
-    phoneLabel: 'Phone',
   },
   footer: {
     tagline: 'Built with signal, not noise.',
@@ -121,7 +119,7 @@ export type UiStrings = typeof en;
 
 const he: UiStrings = {
   meta: {
-    title: 'חגי רטיג · Hag.Ai — מנהל פיתוח AI ו-Big Data',
+    title: 'חגי רטיג · Hag.Ai — מוביל מוצרי AI, תשתיות LLM ו-ML',
     description:
       'חגי רטיג מנהל פיתוח AI ו-Big Data במכבי שירותי בריאות, ובתור Hag.Ai הופך בקשות של המשפחה, השכנים וארגונים לסוכנים, צינורות דאטה וכלים שיוצאים לאוויר.',
   },
@@ -165,8 +163,8 @@ const he: UiStrings = {
   },
   facts: [
     { value: '← 2023', label: 'מוביל את פיתוח ה-AI וה-Big Data במכבי שירותי בריאות' },
-    { value: '5', label: 'פרסי IT, כולל ״הארגון החדשני ביותר בישראל״' },
     { value: '← 2019', label: 'מרצה בתוכנית ה-MBA, הקריה האקדמית אונו' },
+    { value: 'M.Sc.', label: 'הנדסת תעשייה וניהול, הטכניון' },
     { value: '20+', label: 'כלים ומוצרים שיצאו לאוויר אחרי שעות העבודה' },
   ],
   work: {
@@ -176,7 +174,7 @@ const he: UiStrings = {
       'כל פרויקט התחיל מבקשה אמיתית: של ארגון, של השכנים, או של המשפחה שלי. הקוד פתוח בכל מקום שאפשר.',
     visit: 'לאתר',
     code: 'קוד',
-    status: { live: 'באוויר', code: 'קוד פתוח', prototype: 'אב-טיפוס' },
+    status: { live: 'באוויר', code: 'קוד פתוח', prototype: 'אב-טיפוס', wip: 'בעבודה' },
     moreTitle: 'עוד דברים שבניתי',
     moreNote: 'ריפוזיטוריז פרטיים ואבות-טיפוס, רובם בלי קישורים. שאלו אותי על כל אחד מהם.',
     autoTitle: 'אוטומציות שרצות כשאני ישן',
@@ -214,11 +212,9 @@ const he: UiStrings = {
     subtitle: 'בקשה, פרויקט, או שאלה על אסטרטגיית AI. וואטסאפ זו הדרך הכי מהירה להגיע אליי; גם אימייל עובד.',
     whatsapp: 'הודעה בוואטסאפ',
     email: 'שלחו לי אימייל',
-    call: 'התקשרו',
     linkedin: 'LinkedIn',
     github: 'GitHub',
     location: 'כפר סבא, ישראל',
-    phoneLabel: 'טלפון',
   },
   footer: {
     tagline: 'סיגנל, לא רעש.',

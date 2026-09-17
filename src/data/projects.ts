@@ -1,6 +1,6 @@
 import type { L } from '../i18n';
 
-export type ProjectStatus = 'live' | 'code' | 'prototype';
+export type ProjectStatus = 'live' | 'code' | 'prototype' | 'wip';
 export type ArtName = 'docanon' | 'reuitbot' | 'anydoc';
 
 export interface Project {
@@ -54,7 +54,7 @@ export const featured: Project[] = [
   {
     id: 'taxease',
     name: 'TaxEase',
-    status: 'live',
+    status: 'wip',
     size: 'lg',
     tagline: {
       en: 'Israeli tax refunds in five minutes, not five meetings.',
@@ -69,7 +69,6 @@ export const featured: Project[] = [
       he: ['Next.js', 'Gemini OCR', 'pdf-lib', 'Supabase'],
     },
     links: {
-      live: 'https://tax.r-hag.ai',
       code: 'https://github.com/hagynwa/tax-ease-israel',
     },
     cover: {

@@ -28,15 +28,16 @@ const t = ui[lang];
             </p>
             <h3>{r.role[lang]}</h3>
             <p class="org">{r.org[lang]}</p>
-            <ul class="bullets">
-              {r.bullets[lang].map((b) => <li>{b}</li>)}
-            </ul>
+            <p class="summary">{r.summary[lang]}</p>
           </li>
         ))}
       </ol>
 
       <aside class="side">
-        <div class="card block reveal">
+        <figure class="portrait reveal">
+          <img src="/portrait.jpg" width="800" height="1000" alt="Hagai Rettig" loading="lazy" decoding="async" />
+        </figure>
+        <div class="card block reveal" style="--d:60ms">
           <h3 class="block-title">{t.experience.education}</h3>
           {education.map((d) => (
             <div class="entry">
@@ -46,7 +47,7 @@ const t = ui[lang];
             </div>
           ))}
         </div>
-        <div class="card block reveal" style="--d:80ms">
+        <div class="card block reveal" style="--d:120ms">
           <h3 class="block-title">{t.experience.military}</h3>
           <div class="entry">
             <strong>{military.title[lang]}</strong>
@@ -70,7 +71,7 @@ const t = ui[lang];
     padding-inline-start: 1.6rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.2rem;
   }
   .timeline::before {
     content: '';
@@ -113,36 +114,19 @@ const t = ui[lang];
     letter-spacing: 0;
   }
   h3 {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
   }
   .org {
     color: var(--accent-ink);
     font-weight: 500;
     font-size: 0.95rem;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.5rem;
   }
-  .bullets {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .bullets li {
-    font-size: 0.92rem;
+  .summary {
+    font-size: 0.97rem;
     color: var(--text-2);
-    line-height: 1.6;
-    padding-inline-start: 1rem;
-    position: relative;
-  }
-  .bullets li::before {
-    content: '';
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0.68em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.6;
+    line-height: 1.7;
+    max-width: 60ch;
   }
 
   .side {
@@ -151,6 +135,19 @@ const t = ui[lang];
     gap: 1rem;
     position: sticky;
     top: calc(var(--nav-h) + 1.5rem);
+  }
+  .portrait {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 5;
+    background: var(--surface-2);
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .block {
     padding: 1.4rem 1.5rem;
@@ -194,6 +191,9 @@ const t = ui[lang];
     }
     .side {
       position: static;
+    }
+    .portrait {
+      max-width: 320px;
     }
   }
 </style>

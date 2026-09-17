@@ -368,7 +368,8 @@ html[lang='he'] .pill {
   color: var(--text-2);
 }
 
-.pill-prototype {
+.pill-prototype,
+.pill-wip {
   background: var(--warm-soft);
   color: var(--warm);
 }

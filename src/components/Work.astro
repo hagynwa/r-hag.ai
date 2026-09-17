@@ -25,10 +25,15 @@ const nameFor = (p: { name: string; nameHe?: string }) => (lang === 'he' && p.na
     <div class="grid">
       {featured.map((p, i) => (
         <article class:list={['card', 'project', p.size, 'reveal']} style={`--d:${(i % 3) * 70}ms`}>
-          {p.cover && (
+          {p.cover && p.links.live && (
             <a class="cover" href={p.links.live} target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src={p.cover.src} alt={p.cover.alt[lang]} width="1200" height="750" loading="lazy" decoding="async" />
             </a>
+          )}
+          {p.cover && !p.links.live && (
+            <div class="cover">
+              <img src={p.cover.src} alt={p.cover.alt[lang]} width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
           )}
           {p.art && <Art name={p.art} />}
           <div class="body">
