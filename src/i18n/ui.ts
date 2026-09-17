@@ -62,10 +62,9 @@ const en = {
     label: 'Selected work',
     title: 'Things I built, that people use.',
     subtitle:
-      'Every project started with a real request: an organization’s, my neighbors’, or my own family’s. The code is public wherever it can be.',
+      'Every project started with a real request: an organization’s, my neighbors’, or my own family’s.',
     visit: 'Visit',
-    code: 'Code',
-    status: { live: 'Live', code: 'Open source', prototype: 'Prototype', wip: 'In progress' },
+    status: { live: 'Live', inuse: 'In use', prototype: 'Prototype', wip: 'In progress' },
     moreTitle: 'Also built',
     moreNote: 'Private repositories and prototypes, mostly without links. Ask me about any of them.',
     autoTitle: 'Automations that run while I sleep',
@@ -110,7 +109,7 @@ const en = {
   },
   footer: {
     tagline: 'Built with signal, not noise.',
-    built: 'Built with Astro. The source is on GitHub.',
+    built: 'Built with Astro.',
     source: 'Source',
   },
 };
@@ -171,10 +170,9 @@ const he: UiStrings = {
     label: 'עבודות נבחרות',
     title: 'דברים שבניתי, ואנשים משתמשים בהם.',
     subtitle:
-      'כל פרויקט התחיל מבקשה אמיתית: של ארגון, של השכנים, או של המשפחה שלי. הקוד פתוח בכל מקום שאפשר.',
+      'כל פרויקט התחיל מבקשה אמיתית: של ארגון, של השכנים, או של המשפחה שלי.',
     visit: 'לאתר',
-    code: 'קוד',
-    status: { live: 'באוויר', code: 'קוד פתוח', prototype: 'אב-טיפוס', wip: 'בעבודה' },
+    status: { live: 'באוויר', inuse: 'בשימוש', prototype: 'אב-טיפוס', wip: 'בעבודה' },
     moreTitle: 'עוד דברים שבניתי',
     moreNote: 'ריפוזיטוריז פרטיים ואבות-טיפוס, רובם בלי קישורים. שאלו אותי על כל אחד מהם.',
     autoTitle: 'אוטומציות שרצות כשאני ישן',
@@ -218,7 +216,7 @@ const he: UiStrings = {
   },
   footer: {
     tagline: 'סיגנל, לא רעש.',
-    built: 'נבנה עם Astro. הקוד פתוח ב-GitHub.',
+    built: 'נבנה עם Astro.',
     source: 'קוד המקור',
   },
 };

@@ -46,18 +46,13 @@ const nameFor = (p: { name: string; nameHe?: string }) => (lang === 'he' && p.na
             <ul class="tags" aria-label="Stack">
               {p.tags[lang].map((tag) => <li>{tag}</li>)}
             </ul>
-            <div class="links">
-              {p.links.live && (
+            {p.links.live && (
+              <div class="links">
                 <a href={p.links.live} target="_blank" rel="noopener">
                   {t.work.visit} <Icon name="external" size={15} />
                 </a>
-              )}
-              {p.links.code && (
-                <a href={p.links.code} target="_blank" rel="noopener">
-                  <Icon name="github" size={15} /> {t.work.code}
-                </a>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </article>
       ))}

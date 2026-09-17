@@ -363,7 +363,7 @@ html[lang='he'] .pill {
   }
 }
 
-.pill-code {
+.pill-inuse {
   background: var(--surface-2);
   color: var(--text-2);
 }
