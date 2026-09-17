@@ -1,115 +1,126 @@
 ---
 import '../styles/global.css';
+import { SITE, dirOf, pathOf, type Lang } from '../i18n';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const dir = dirOf(lang);
+
+const canonical = new URL(pathOf(lang), SITE).href;
+const enUrl = new URL(pathOf('en'), SITE).href;
+const heUrl = new URL(pathOf('he'), SITE).href;
+const ogImage = new URL('/og.png', SITE).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Hagai Rettig',
+  alternateName: 'חגי רטיג',
+  url: SITE,
+  image: new URL('/portrait.jpg', SITE).href,
+  jobTitle: 'AI Product Leader, LLM & ML Infrastructure',
+  worksFor: { '@type': 'Organization', name: 'Maccabi Healthcare Services' },
+  brand: { '@type': 'Brand', name: 'Hag.Ai', logo: new URL('/brand/logo@2x.png', SITE).href },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Technion – Israel Institute of Technology' },
+    { '@type': 'CollegeOrUniversity', name: 'Ariel University' },
+  ],
+  email: 'mailto:hagai.rettig@gmail.com',
+  address: { '@type': 'PostalAddress', addressLocality: 'Kfar Saba', addressCountry: 'IL' },
+  sameAs: ['https://linkedin.com/in/hagai-rettig', 'https://github.com/hagynwa'],
+};
 ---
 
 <!doctype html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>></text></svg>" />
-		<title>Hagai Rettig — r-hag.ai</title>
-		<meta name="description" content="Hagai Rettig — AI & Big Data leader. Builder of tools that think. Less but better." />
-		<meta property="og:title" content="Hagai Rettig — r-hag.ai" />
-		<meta property="og:description" content="AI & Big Data leader building tools that solve real problems. 10+ AI products shipped." />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://r-hag.ai" />
-	</head>
-	<body>
-		<slot />
-		
-		<!-- Shared Scripts -->
-		<script is:inline>
-			// Language Toggle Logic
-			window.setLang = function(lang) {
-				const html = document.documentElement;
-				html.lang = lang;
-				html.dir = lang === 'he' ? 'rtl' : 'ltr';
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="author" content="Hagai Rettig" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="he" href={heUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-				// Update toggle buttons
-				document.querySelectorAll('.lang-btn').forEach(btn => {
-					btn.classList.toggle('active', btn.dataset.lang === lang);
-				});
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hag.Ai · r-hag.ai" />
+    <meta property="og:locale" content={lang === 'he' ? 'he_IL' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'he' ? 'en_US' : 'he_IL'} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#071427" media="(prefers-color-scheme: dark)" />
 
-				// Update all translatable elements
-				document.querySelectorAll('[data-en][data-he]').forEach(el => {
-					const text = el.getAttribute(`data-${lang}`);
-					if (text) {
-						if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-							el.placeholder = text;
-						} else {
-							el.innerHTML = text;
-						}
-					}
-				});
+    <!-- Runs before paint: theme from storage/system, and a one-time Hebrew redirect from "/" -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var s = localStorage.getItem('theme');
+          if (s === 'dark' || (!s && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            d.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+        try {
+          if (location.pathname === '/') {
+            var l = localStorage.getItem('lang');
+            var heBrowser = /^he\b/i.test(navigator.language || '');
+            if (l === 'he' || (!l && heBrowser)) location.replace('/he/');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
-				// Update expand buttons text
-				document.querySelectorAll('.expand-btn').forEach(btn => {
-					const expandable = btn.nextElementSibling;
-					if (expandable && (expandable.classList.contains('expandable') || expandable.classList.contains('project-detail'))) {
-						const isOpen = expandable.classList.contains('open');
-						const key = isOpen ? 'open' : 'closed';
-						const text = btn.getAttribute(`data-${lang}-${key}`);
-						if (text) btn.querySelector('span:first-child').textContent = text;
-					}
-				});
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Rubik:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-				try { localStorage.setItem('lang', lang); } catch(e) {}
-			}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{lang === 'he' ? 'דלג לתוכן' : 'Skip to content'}</a>
+    <slot />
 
-			// Load saved language
-			try {
-				const savedLang = localStorage.getItem('lang');
-				if (savedLang && savedLang !== 'en') {
-					// We set a timeout to let the DOM render before running translation
-					setTimeout(() => setLang(savedLang), 0);
-				}
-			} catch(e) {}
-
-			// Dark Mode Toggle Logic
-			window.setTheme = function(theme) {
-				if (theme === 'dark') {
-					document.documentElement.setAttribute('data-theme', 'dark');
-				} else {
-					document.documentElement.removeAttribute('data-theme');
-				}
-				
-				// Update all theme toggle buttons
-				document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
-					btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
-				});
-
-				localStorage.setItem('theme', theme);
-			}
-
-			window.toggleTheme = function() {
-				const current = document.documentElement.getAttribute('data-theme');
-				setTheme(current === 'dark' ? 'light' : 'dark');
-			}
-
-			// Load saved theme
-			try {
-				const savedTheme = localStorage.getItem('theme');
-				if (savedTheme) {
-					setTheme(savedTheme);
-				} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					setTheme('dark');
-				}
-			} catch(e) {}
-			
-			// Scroll Reveal
-			document.addEventListener('DOMContentLoaded', () => {
-				const revealObserver = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('visible');
-							revealObserver.unobserve(entry.target);
-						}
-					});
-				}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-				document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger').forEach(el => revealObserver.observe(el));
-			});
-		</script>
-	</body>
+    <script>
+      const els = document.querySelectorAll<HTMLElement>('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -6% 0px' },
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add('in'));
+      }
+    </script>
+  </body>
 </html>
