@@ -27,7 +27,7 @@ const en = {
   },
   hero: {
     eyebrow: 'Hagai Rettig · Kfar Saba, Israel',
-    title1: 'Someone asks.',
+    title1: 'Someone needs it.',
     title2: 'I build it.',
     lead:
       'I lead AI & Big Data development at Maccabi Healthcare Services, Israel’s second-largest health fund. After hours, as Hag.Ai, I turn requests from family, neighbors and organizations into agents, data pipelines and small tools that actually ship.',
@@ -136,7 +136,7 @@ const he: UiStrings = {
   },
   hero: {
     eyebrow: 'חגי רטיג · כפר סבא',
-    title1: 'מישהו מבקש.',
+    title1: 'מישהו צריך.',
     title2: 'אני בונה.',
     lead:
       'אני מנהל פיתוח AI ו-Big Data במכבי שירותי בריאות. אחרי שעות העבודה, בתור Hag.Ai, אני הופך בקשות של המשפחה, השכנים וארגונים לסוכנים, צינורות דאטה וכלים קטנים שבאמת יוצאים לאוויר.',
