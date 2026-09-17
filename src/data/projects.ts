@@ -1,6 +1,6 @@
 import type { L } from '../i18n';
 
-export type ProjectStatus = 'live' | 'code' | 'prototype' | 'wip';
+export type ProjectStatus = 'live' | 'inuse' | 'prototype' | 'wip';
 export type ArtName = 'docanon' | 'reuitbot' | 'anydoc';
 
 export interface Project {
@@ -41,7 +41,6 @@ export const featured: Project[] = [
     },
     links: {
       live: 'https://30.torahmitzion.org/',
-      code: 'https://github.com/Torah-Mitzion/archive',
     },
     cover: {
       src: '/work/tmz.jpg',
@@ -68,9 +67,7 @@ export const featured: Project[] = [
       en: ['Next.js', 'Gemini OCR', 'pdf-lib', 'Supabase'],
       he: ['Next.js', 'Gemini OCR', 'pdf-lib', 'Supabase'],
     },
-    links: {
-      code: 'https://github.com/hagynwa/tax-ease-israel',
-    },
+    links: {},
     cover: {
       src: '/work/taxease.jpg',
       alt: {
@@ -82,7 +79,7 @@ export const featured: Project[] = [
   {
     id: 'docanon',
     name: 'DocAnon',
-    status: 'code',
+    status: 'inuse',
     size: 'sm',
     art: 'docanon',
     tagline: {
@@ -97,12 +94,12 @@ export const featured: Project[] = [
       en: ['FastAPI', 'Gemini', 'PyMuPDF', 'React'],
       he: ['FastAPI', 'Gemini', 'PyMuPDF', 'React'],
     },
-    links: { code: 'https://github.com/hagynwa/anonimized_documents' },
+    links: {},
   },
   {
     id: 'reuitbot',
     name: 'ReuitBot',
-    status: 'code',
+    status: 'inuse',
     size: 'sm',
     art: 'reuitbot',
     tagline: {
@@ -117,12 +114,12 @@ export const featured: Project[] = [
       en: ['Node.js', 'Telegram', 'Supabase', 'NLP'],
       he: ['Node.js', 'טלגרם', 'Supabase', 'NLP'],
     },
-    links: { code: 'https://github.com/hagynwa/reuitbot' },
+    links: {},
   },
   {
     id: 'anydoc',
     name: 'Anydoc UI',
-    status: 'code',
+    status: 'inuse',
     size: 'sm',
     art: 'anydoc',
     tagline: {
@@ -137,7 +134,7 @@ export const featured: Project[] = [
       en: ['Node.js', 'Firecrawl anydoc', 'Docker'],
       he: ['Node.js', 'Firecrawl anydoc', 'Docker'],
     },
-    links: { code: 'https://github.com/hagynwa/anydoc-ui' },
+    links: {},
   },
 ];
 
